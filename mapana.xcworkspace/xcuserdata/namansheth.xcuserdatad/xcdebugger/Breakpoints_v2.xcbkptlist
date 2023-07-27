@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "FC196398-EE70-45AD-AB6E-A791FC0FC623"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            uuid = "774B7DC9-793C-43CF-878F-C83D598DAA4E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            breakpointStackSelectionBehavior = "1"
+            scope = "1"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A8C77D3-C1F0-4FBA-BBAB-66E9CA25719A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/Controller/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "revealSideMenu()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "25EF861F-71E9-4762-B6F1-37980C789C58"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/ViewModel/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "checkUserAuth(userName:password:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7FD6D740-A6DE-4170-9104-1031F277C57E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/ViewModel/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "checkUserAuth(userName:password:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "342B2137-BE10-479C-9BDB-BE728E42057E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/Controller/DetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "342B2137-BE10-479C-9BDB-BE728E42057E - 984f137debb82417"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mapana.DetailsViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "73">
+               </Location>
+               <Location
+                  uuid = "342B2137-BE10-479C-9BDB-BE728E42057E - 984f137debb82455"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mapana.DetailsViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "342B2137-BE10-479C-9BDB-BE728E42057E - 984f137debb82417"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mapana.DetailsViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "342B2137-BE10-479C-9BDB-BE728E42057E - 984f137debb824b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mapana.DetailsViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "102">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "520D0066-7DF8-4B8C-A06B-6248A5FBF098"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/Controller/RouteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "520D0066-7DF8-4B8C-A06B-6248A5FBF098 - fbd92d3ea951a156"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;mapana.BoroughLocationElement&gt;) -&gt; () in mapana.RouteViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/RouteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "3253">
+               </Location>
+               <Location
+                  uuid = "520D0066-7DF8-4B8C-A06B-6248A5FBF098 - fbd92d3ea951a156"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;mapana.BoroughLocationElement&gt;) -&gt; () in mapana.RouteViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/RouteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "3293">
+               </Location>
+               <Location
+                  uuid = "520D0066-7DF8-4B8C-A06B-6248A5FBF098 - fbd92d3ea951a156"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;mapana.BoroughLocationElement&gt;) -&gt; () in mapana.RouteViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/RouteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "3153">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06921BDF-2337-439D-8901-3544FE69DDA3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/Controller/RouteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "06921BDF-2337-439D-8901-3544FE69DDA3 - 90b95b1588430e9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (mapana.RequestError) -&gt; () in mapana.RouteViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/RouteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "21">
+               </Location>
+               <Location
+                  uuid = "06921BDF-2337-439D-8901-3544FE69DDA3 - 90b95b1588430e9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (mapana.RequestError) -&gt; () in mapana.RouteViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/RouteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A01CE229-CE39-431D-A1F6-B5B9329FD7E3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/Controller/DetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE4B0722-FA21-475A-91D0-543614F7A1BE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/Controller/RouteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BE4B0722-FA21-475A-91D0-543614F7A1BE - fbd92d3ea951a0c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;mapana.BoroughLocationElement&gt;) -&gt; () in mapana.RouteViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/RouteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "1876">
+               </Location>
+               <Location
+                  uuid = "BE4B0722-FA21-475A-91D0-543614F7A1BE - fbd92d3ea951a0c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;mapana.BoroughLocationElement&gt;) -&gt; () in mapana.RouteViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/RouteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "1924">
+               </Location>
+               <Location
+                  uuid = "BE4B0722-FA21-475A-91D0-543614F7A1BE - fbd92d3ea951a0c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;mapana.BoroughLocationElement&gt;) -&gt; () in mapana.RouteViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/RouteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "2033">
+               </Location>
+               <Location
+                  uuid = "BE4B0722-FA21-475A-91D0-543614F7A1BE - fbd92d3ea951a0c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;mapana.BoroughLocationElement&gt;) -&gt; () in mapana.RouteViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/RouteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "2147">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "35102803-9413-443A-8C86-0A6C69BF77EC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/Controller/RouteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "27849591-75FF-4242-9967-00B926035311"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/Controller/RouteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "493"
+            endingLineNumber = "493"
+            landmarkName = "getPinsUnderLocations(distanceFrom:distanceTo:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "27849591-75FF-4242-9967-00B926035311 - bbac1d1a53e78742"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (mapana.RequestError) -&gt; () in closure #2 (Swift.Array&lt;mapana.RouteMatrixElement&gt;) -&gt; () in mapana.RouteViewController.getPinsUnderLocations(distanceFrom: Swift.Int, distanceTo: Swift.Int) -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/RouteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "493"
+                  endingLineNumber = "493"
+                  offsetFromSymbolStart = "170">
+               </Location>
+               <Location
+                  uuid = "27849591-75FF-4242-9967-00B926035311 - bbac1d1a53e78742"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (mapana.RequestError) -&gt; () in closure #2 (Swift.Array&lt;mapana.RouteMatrixElement&gt;) -&gt; () in mapana.RouteViewController.getPinsUnderLocations(distanceFrom: Swift.Int, distanceTo: Swift.Int) -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/RouteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "493"
+                  endingLineNumber = "493"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0A85C1D1-699D-476B-945A-71F67AB63A30"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/Controller/RouteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "434"
+            endingLineNumber = "434"
+            landmarkName = "getPinsUnderLocations(distanceFrom:distanceTo:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0A85C1D1-699D-476B-945A-71F67AB63A30 - 55eb7e300449710f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mapana.RouteViewController.getPinsUnderLocations(distanceFrom: Swift.Int, distanceTo: Swift.Int) -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/RouteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "434"
+                  endingLineNumber = "434"
+                  offsetFromSymbolStart = "3041">
+               </Location>
+               <Location
+                  uuid = "0A85C1D1-699D-476B-945A-71F67AB63A30 - 55eb7e300449710f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mapana.RouteViewController.getPinsUnderLocations(distanceFrom: Swift.Int, distanceTo: Swift.Int) -&gt; ()"
+                  moduleName = "mapana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/namansheth/Documents/mapana/mapana/Controller/RouteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "434"
+                  endingLineNumber = "434"
+                  offsetFromSymbolStart = "2564">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F9FD819-B785-4E91-A74D-9357FD5285E7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/Controller/DetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "getImageResponse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "14DE5E02-FE38-4704-9963-31447358C574"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/Controller/DetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "getImageResponse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9AE40E1-652E-4412-B049-64705C6BB0EE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/Controller/DetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "getImageResponse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "50AEAC17-8E6E-49A5-8EE9-CF4DA97357DA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/ViewModel/DetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "uploadUserLocationImage(image:pos:userId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "58EEC162-5FA3-43FD-B7C7-F3660296D413"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mapana/ViewModel/DetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "uploadUserLocationImage(image:pos:userId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
