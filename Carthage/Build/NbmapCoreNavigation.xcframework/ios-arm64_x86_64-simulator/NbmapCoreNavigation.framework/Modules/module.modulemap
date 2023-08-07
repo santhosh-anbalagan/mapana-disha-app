@@ -1,0 +1,11 @@
+framework module NbmapCoreNavigation {
+  umbrella header "NbmapCoreNavigation.h"
+
+  export *
+  module * { export * }
+}
+
+module NbmapCoreNavigation.Swift {
+    header "NbmapCoreNavigation-Swift.h"
+    requires objc
+}

@@ -1,0 +1,26 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "0.3.0",
+  "iOS" : [
+    {
+      "hash" : "9c28f97adefa09d363fc6b4f7aef84492df7d4ea615a040120c8341e6f8dca15",
+      "name" : "Nbmap",
+      "container" : "Nbmap.xcframework",
+      "identifier" : "ios-arm64_i386_x86_64-simulator"
+    },
+    {
+      "hash" : "5a9f236d483b7bae3c1d0a397092c2f720e3eae1f8bdd5dce7c5604278e3ac6f",
+      "name" : "Nbmap",
+      "container" : "Nbmap.xcframework",
+      "identifier" : "ios-arm64_armv7"
+    }
+  ]
+}

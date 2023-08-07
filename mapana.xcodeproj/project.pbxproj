@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -56,7 +56,36 @@
 		DBFE0A1E2A67C1B00079006C /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE0A1A2A67C1B00079006C /* SideMenuCell.swift */; };
 		DBFE0A202A67C1B90079006C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE0A1F2A67C1B90079006C /* MainViewController.swift */; };
 		EBCD95F71699BB4DCCC10D9F /* Pods_mapana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB8DFA462489345D5370291 /* Pods_mapana.framework */; };
+		EFD6FA152A75385000A58AF3 /* NewRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD6FA142A75385000A58AF3 /* NewRouteViewController.swift */; };
+		EFD6FA162A7555BE00A58AF3 /* Nbmap.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF804A2B2A75236300D659CE /* Nbmap.xcframework */; };
+		EFD6FA172A7555BE00A58AF3 /* Nbmap.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF804A2B2A75236300D659CE /* Nbmap.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EFD6FA182A7555BE00A58AF3 /* NbmapCoreNavigation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF804A2D2A75236400D659CE /* NbmapCoreNavigation.xcframework */; };
+		EFD6FA192A7555BE00A58AF3 /* NbmapCoreNavigation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF804A2D2A75236400D659CE /* NbmapCoreNavigation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EFD6FA1A2A7555BE00A58AF3 /* NbmapDirections.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF804A2E2A75236400D659CE /* NbmapDirections.xcframework */; };
+		EFD6FA1B2A7555BE00A58AF3 /* NbmapDirections.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF804A2E2A75236400D659CE /* NbmapDirections.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EFD6FA1C2A7555BE00A58AF3 /* NbmapNavigation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF804A2F2A75236400D659CE /* NbmapNavigation.xcframework */; };
+		EFD6FA1D2A7555BE00A58AF3 /* NbmapNavigation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF804A2F2A75236400D659CE /* NbmapNavigation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EFD6FA1E2A7555BE00A58AF3 /* Turf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF804A2C2A75236400D659CE /* Turf.xcframework */; };
+		EFD6FA1F2A7555BF00A58AF3 /* Turf.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF804A2C2A75236400D659CE /* Turf.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EFD6FA202A7555BF00A58AF3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EFD6FA1D2A7555BE00A58AF3 /* NbmapNavigation.xcframework in Embed Frameworks */,
+				EFD6FA172A7555BE00A58AF3 /* Nbmap.xcframework in Embed Frameworks */,
+				EFD6FA192A7555BE00A58AF3 /* NbmapCoreNavigation.xcframework in Embed Frameworks */,
+				EFD6FA1F2A7555BF00A58AF3 /* Turf.xcframework in Embed Frameworks */,
+				EFD6FA1B2A7555BE00A58AF3 /* NbmapDirections.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		08FB758B9015C2D6E93CAE87 /* Pods-mapana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mapana.release.xcconfig"; path = "Target Support Files/Pods-mapana/Pods-mapana.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +143,12 @@
 		DBFE0A192A67C1B00079006C /* SideMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuCell.xib; sourceTree = "<group>"; };
 		DBFE0A1A2A67C1B00079006C /* SideMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		DBFE0A1F2A67C1B90079006C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EF804A2B2A75236300D659CE /* Nbmap.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nbmap.xcframework; path = Carthage/Build/Nbmap.xcframework; sourceTree = "<group>"; };
+		EF804A2C2A75236400D659CE /* Turf.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Turf.xcframework; path = Carthage/Build/Turf.xcframework; sourceTree = "<group>"; };
+		EF804A2D2A75236400D659CE /* NbmapCoreNavigation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NbmapCoreNavigation.xcframework; path = Carthage/Build/NbmapCoreNavigation.xcframework; sourceTree = "<group>"; };
+		EF804A2E2A75236400D659CE /* NbmapDirections.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NbmapDirections.xcframework; path = Carthage/Build/NbmapDirections.xcframework; sourceTree = "<group>"; };
+		EF804A2F2A75236400D659CE /* NbmapNavigation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NbmapNavigation.xcframework; path = Carthage/Build/NbmapNavigation.xcframework; sourceTree = "<group>"; };
+		EFD6FA142A75385000A58AF3 /* NewRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRouteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +156,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD6FA1E2A7555BE00A58AF3 /* Turf.xcframework in Frameworks */,
+				EFD6FA1A2A7555BE00A58AF3 /* NbmapDirections.xcframework in Frameworks */,
+				EFD6FA162A7555BE00A58AF3 /* Nbmap.xcframework in Frameworks */,
 				EBCD95F71699BB4DCCC10D9F /* Pods_mapana.framework in Frameworks */,
+				EFD6FA1C2A7555BE00A58AF3 /* NbmapNavigation.xcframework in Frameworks */,
+				EFD6FA182A7555BE00A58AF3 /* NbmapCoreNavigation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +203,6 @@
 				18F2AC922A619E0F008D0A26 /* Info.plist */,
 				18F2AC8A2A619E0D008D0A26 /* mapana.xcdatamodeld */,
 				DB7085662A64A96A00056A4B /* mapana.entitlements */,
-				DB70855D2A649D3C00056A4B /* CoreData_NSMangeObj */,
 				DB992DC02A61B9E3004925B8 /* fonts */,
 			);
 			path = mapana;
@@ -181,6 +220,11 @@
 		980C9833615A39348B28D148 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF804A2B2A75236300D659CE /* Nbmap.xcframework */,
+				EF804A2D2A75236400D659CE /* NbmapCoreNavigation.xcframework */,
+				EF804A2E2A75236400D659CE /* NbmapDirections.xcframework */,
+				EF804A2F2A75236400D659CE /* NbmapNavigation.xcframework */,
+				EF804A2C2A75236400D659CE /* Turf.xcframework */,
 				6EB8DFA462489345D5370291 /* Pods_mapana.framework */,
 			);
 			name = Frameworks;
@@ -190,8 +234,9 @@
 			isa = PBXGroup;
 			children = (
 				DB70853B2A62A36200056A4B /* LoginViewController.swift */,
-				DBFE0A132A6777DC0079006C /* RouteViewController.swift */,
 				DBFE0A1F2A67C1B90079006C /* MainViewController.swift */,
+				EFD6FA142A75385000A58AF3 /* NewRouteViewController.swift */,
+				DBFE0A132A6777DC0079006C /* RouteViewController.swift */,
 				DB8D38E02A6F0083000DAA6E /* DetailsViewController.swift */,
 				DB8D38E62A6F00D9000DAA6E /* Cells */,
 			);
@@ -225,13 +270,6 @@
 				DBBEA9882A69D4C400ACAAD8 /* GoogleApiRequest.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		DB70855D2A649D3C00056A4B /* CoreData_NSMangeObj */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CoreData_NSMangeObj;
 			sourceTree = "<group>";
 		};
 		DB8D38E62A6F00D9000DAA6E /* Cells */ = {
@@ -320,7 +358,8 @@
 				18F2AC7A2A619E0D008D0A26 /* Sources */,
 				18F2AC7B2A619E0D008D0A26 /* Frameworks */,
 				18F2AC7C2A619E0D008D0A26 /* Resources */,
-				20B23ABD2E0461F4D6721914 /* [CP] Embed Pods Frameworks */,
+				4B927DF43472993F458E20C6 /* [CP] Embed Pods Frameworks */,
+				EFD6FA202A7555BF00A58AF3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -398,7 +437,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		20B23ABD2E0461F4D6721914 /* [CP] Embed Pods Frameworks */ = {
+		4B927DF43472993F458E20C6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -453,6 +492,7 @@
 				DBFE0A142A6777DC0079006C /* RouteViewController.swift in Sources */,
 				DBE342192A6DBD03007F2718 /* CustomPointAnnotation.swift in Sources */,
 				DBFE0A202A67C1B90079006C /* MainViewController.swift in Sources */,
+				EFD6FA152A75385000A58AF3 /* NewRouteViewController.swift in Sources */,
 				DBDD29E12A6F745600C6951D /* TransitionDelegate.swift in Sources */,
 				DB60375C2A68738900D36A29 /* LocationManager.swift in Sources */,
 				DBFE0A1C2A67C1B00079006C /* SideMenuModel.swift in Sources */,
@@ -629,7 +669,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SLV2234S46;
 				INFOPLIST_FILE = mapana/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Lattice Mapana";
@@ -644,8 +684,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lattice.latticemapana;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lattice.mapana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -667,7 +707,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SLV2234S46;
 				INFOPLIST_FILE = mapana/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Lattice Mapana";
@@ -682,8 +722,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.02;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lattice.latticemapana;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lattice.mapana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

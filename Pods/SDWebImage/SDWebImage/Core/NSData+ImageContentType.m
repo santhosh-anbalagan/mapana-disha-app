@@ -13,8 +13,10 @@
 #else
 #import <MobileCoreServices/MobileCoreServices.h>
 #endif
-#import "SDImageIOAnimatedCoderInternal.h"
+#import "SDImageHEICCoderInternal.h"
 
+// Currently Image/IO does not support WebP
+#define kSDUTTypeWebP ((__bridge CFStringRef)@"public.webp")
 #define kSVGTagEnd @"</svg>"
 
 @implementation NSData (ImageContentType)
@@ -37,8 +39,6 @@
         case 0x49:
         case 0x4D:
             return SDImageFormatTIFF;
-        case 0x42:
-            return SDImageFormatBMP;
         case 0x52: {
             if (data.length >= 12) {
                 //RIFF....WEBP
@@ -76,9 +76,12 @@
             }
         }
         case 0x3C: {
-            // Check end with SVG tag
-            if ([data rangeOfData:[kSVGTagEnd dataUsingEncoding:NSUTF8StringEncoding] options:NSDataSearchBackwards range: NSMakeRange(data.length - MIN(100, data.length), MIN(100, data.length))].location != NSNotFound) {
-                return SDImageFormatSVG;
+            if (data.length > 100) {
+                // Check end with SVG tag
+                NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(data.length - 100, 100)] encoding:NSASCIIStringEncoding];
+                if ([testString containsString:kSVGTagEnd]) {
+                    return SDImageFormatSVG;
+                }
             }
         }
     }
@@ -89,16 +92,16 @@
     CFStringRef UTType;
     switch (format) {
         case SDImageFormatJPEG:
-            UTType = kSDUTTypeJPEG;
+            UTType = kUTTypeJPEG;
             break;
         case SDImageFormatPNG:
-            UTType = kSDUTTypePNG;
+            UTType = kUTTypePNG;
             break;
         case SDImageFormatGIF:
-            UTType = kSDUTTypeGIF;
+            UTType = kUTTypeGIF;
             break;
         case SDImageFormatTIFF:
-            UTType = kSDUTTypeTIFF;
+            UTType = kUTTypeTIFF;
             break;
         case SDImageFormatWebP:
             UTType = kSDUTTypeWebP;
@@ -110,20 +113,14 @@
             UTType = kSDUTTypeHEIF;
             break;
         case SDImageFormatPDF:
-            UTType = kSDUTTypePDF;
+            UTType = kUTTypePDF;
             break;
         case SDImageFormatSVG:
-            UTType = kSDUTTypeSVG;
-            break;
-        case SDImageFormatBMP:
-            UTType = kSDUTTypeBMP;
-            break;
-        case SDImageFormatRAW:
-            UTType = kSDUTTypeRAW;
+            UTType = kUTTypeScalableVectorGraphics;
             break;
         default:
             // default is kUTTypeImage abstract type
-            UTType = kSDUTTypeImage;
+            UTType = kUTTypeImage;
             break;
     }
     return UTType;
@@ -134,13 +131,13 @@
         return SDImageFormatUndefined;
     }
     SDImageFormat imageFormat;
-    if (CFStringCompare(uttype, kSDUTTypeJPEG, 0) == kCFCompareEqualTo) {
+    if (CFStringCompare(uttype, kUTTypeJPEG, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatJPEG;
-    } else if (CFStringCompare(uttype, kSDUTTypePNG, 0) == kCFCompareEqualTo) {
+    } else if (CFStringCompare(uttype, kUTTypePNG, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatPNG;
-    } else if (CFStringCompare(uttype, kSDUTTypeGIF, 0) == kCFCompareEqualTo) {
+    } else if (CFStringCompare(uttype, kUTTypeGIF, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatGIF;
-    } else if (CFStringCompare(uttype, kSDUTTypeTIFF, 0) == kCFCompareEqualTo) {
+    } else if (CFStringCompare(uttype, kUTTypeTIFF, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatTIFF;
     } else if (CFStringCompare(uttype, kSDUTTypeWebP, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatWebP;
@@ -148,14 +145,10 @@
         imageFormat = SDImageFormatHEIC;
     } else if (CFStringCompare(uttype, kSDUTTypeHEIF, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatHEIF;
-    } else if (CFStringCompare(uttype, kSDUTTypePDF, 0) == kCFCompareEqualTo) {
+    } else if (CFStringCompare(uttype, kUTTypePDF, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatPDF;
-    } else if (CFStringCompare(uttype, kSDUTTypeSVG, 0) == kCFCompareEqualTo) {
+    } else if (CFStringCompare(uttype, kUTTypeScalableVectorGraphics, 0) == kCFCompareEqualTo) {
         imageFormat = SDImageFormatSVG;
-    } else if (CFStringCompare(uttype, kSDUTTypeBMP, 0) == kCFCompareEqualTo) {
-        imageFormat = SDImageFormatBMP;
-    } else if (UTTypeConformsTo(uttype, kSDUTTypeRAW)) {
-        imageFormat = SDImageFormatRAW;
     } else {
         imageFormat = SDImageFormatUndefined;
     }

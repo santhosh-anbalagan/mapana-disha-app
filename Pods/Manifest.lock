@@ -1,15 +1,13 @@
 PODS:
   - DropDown (2.3.2)
-  - FLEX (5.22.10)
-  - lottie-ios (4.2.0)
+  - lottie-ios (3.1.8)
   - Polyline (5.1.0)
-  - SDWebImage (5.15.6):
-    - SDWebImage/Core (= 5.15.6)
-  - SDWebImage/Core (5.15.6)
+  - SDWebImage (5.8.3):
+    - SDWebImage/Core (= 5.8.3)
+  - SDWebImage/Core (5.8.3)
 
 DEPENDENCIES:
   - DropDown (= 2.3.2)
-  - FLEX
   - lottie-ios
   - Polyline (~> 5.0)
   - SDWebImage (~> 5.0)
@@ -17,18 +15,16 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - DropDown
-    - FLEX
     - lottie-ios
     - Polyline
     - SDWebImage
 
 SPEC CHECKSUMS:
   DropDown: 7f87abecc28f9b4edad810fe1211c5c018c257e5
-  FLEX: f21ee4f498eed3f8a1eded66b21939fd3b7a22ce
-  lottie-ios: 809ecf2d460ed650a6aed7aa88b2ec45fab4779c
+  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   Polyline: 2a1f29f87f8d9b7de868940f4f76deb8c678a5b1
-  SDWebImage: d47d81bea8a77187896b620dc79c3c528e8906b9
+  SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c
 
-PODFILE CHECKSUM: e0ce1fda8ab73ac0c62e58ef2ca727c41566c1ce
+PODFILE CHECKSUM: c6c849ed990948088ea3601046f039872259da6c
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.8.4

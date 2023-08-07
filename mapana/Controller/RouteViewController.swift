@@ -13,14 +13,16 @@ import SDWebImage
 import Polyline
 import Lottie
 //import FLEX
+
 struct Waypoint {
     let latitude: Double
     let longitude: Double
 }
+
 class RouteViewController: UIViewController {
     
     @IBOutlet weak var backGroundImgView: UIImageView!
-    @IBOutlet weak var progressView: LottieAnimationView!
+    @IBOutlet weak var progressView: AnimationView!
     @IBOutlet weak var btnDropDown: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
@@ -49,10 +51,12 @@ class RouteViewController: UIViewController {
     var longitude: Double?
     var locations: [MKPointAnnotation] = []
     var farestDropedObj: MKPointAnnotation?
-    var lotView = LottieAnimationView()
+    var lotView = AnimationView()
     var i = 0
     var d = 2000
     var isRouteMatrixCompleted = false
+    var userID = UserDefaults.standard.value(forKey: "userId")
+    
     private var detailsTransitioningDelegate: InteractiveModalTransitioningDelegate!
     
     override func viewDidLoad() {
@@ -63,7 +67,6 @@ class RouteViewController: UIViewController {
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.requestLocation()
         
-
         let buttonRight = UIButton(type: .custom)
         //set image for button
         buttonRight.setImage(UIImage(named: "sideLogo"), for: .normal)
@@ -82,12 +85,10 @@ class RouteViewController: UIViewController {
         
         routeModel = RouteModel()
         menuDropDown.anchorView = btnDropDown
-        routeModel?.fetchAllBorough()
+        routeModel?.fetchAllBorough(userId: String(describing: userID))
         
         self.routeModel?.onErrorHandling = { error in
-            
             print(error)
-            
         }
         
         self.routeModel?.onSucessHandling = { [weak self] model in
@@ -164,8 +165,8 @@ class RouteViewController: UIViewController {
         super.viewWillAppear(animated)
         LocationManager.shared.requestLocationAuthorization()
         //FLEXManager.shared.showExplorer()
-      //  print(LocationManager.shared.longitude ?? 0.0)
-      //  print(LocationManager.shared.latitude ?? 0.0)
+        //  print(LocationManager.shared.longitude ?? 0.0)
+        //  print(LocationManager.shared.latitude ?? 0.0)
     }
     
     @IBAction func btnDropDownClicked(_ sender: UIButton) {
@@ -173,41 +174,41 @@ class RouteViewController: UIViewController {
     }
     
     @IBAction func btnStartnavigation(_ sender: UIButton) {
-       // openGoogleMap()
-      
+        // openGoogleMap()
+        
         var waypointsParam = [Waypoint]()
         for obj in finalFilteredObj {
             if obj.coordinate.latitude != farestDropedObj?.coordinate.latitude {
                 waypointsParam.append(Waypoint(latitude: obj.coordinate.latitude, longitude: obj.coordinate.longitude))
             }
         }
-//        var waypointsParam = [(Double, Double)]()
-//       for obj in finalFilteredObj {
-//           if obj.coordinate.latitude != farestDropedObj?.coordinate.latitude {
-//               waypointsParam.append((obj.coordinate.latitude,obj.coordinate.longitude))
-//           }
-//       }
-//    let otherWaypoints = waypointsParam.dropFirst().map { "\($0.0),\($0.1)" }.joined(separator: "|")
-//
+        //        var waypointsParam = [(Double, Double)]()
+        //       for obj in finalFilteredObj {
+        //           if obj.coordinate.latitude != farestDropedObj?.coordinate.latitude {
+        //               waypointsParam.append((obj.coordinate.latitude,obj.coordinate.longitude))
+        //           }
+        //       }
+        //    let otherWaypoints = waypointsParam.dropFirst().map { "\($0.0),\($0.1)" }.joined(separator: "|")
+        //
         openGoogleMapsWithWaypoints(waypoints: waypointsParam)
     }
     
     func openGoogleMapsWithWaypoints(waypoints: [Waypoint]) {
-
+        
         // Compose the URL scheme for Google Maps
         let baseURL = "comgooglemaps-x-callback://"
-
+        
         // Add the origin (current location) to the URL
         var urlString = "&saddr=\(String(describing: latitude!)),\(String(describing: longitude!))&waypoints="
-
+        
         // Add all the waypoints (stopovers) to the URL
         for waypoint in waypoints {
             urlString += "\(waypoint.latitude),\(waypoint.longitude)"
         }
-
+        
         // Add the destination as the last waypoint in the URL
         urlString += "&daddr=\(String(describing: farestDropedObj!.coordinate.latitude)),\(String(describing: farestDropedObj!.coordinate.longitude))"
-
+        
         //let encodedUrl = (baseURL + urlString).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         // Open Google Maps if it's installed, otherwise open in the browser
         if let url = URL(string: baseURL + urlString), UIApplication.shared.canOpenURL(url) {
@@ -227,10 +228,10 @@ class RouteViewController: UIViewController {
     
     func openGoogleMap() {
         if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {  //if phone has an app
-        
+            
             if let url = URL(string: "comgooglemaps-x-callback://?saddr=&daddr=\(farestDropedObj!.coordinate.latitude),\(farestDropedObj!.coordinate.longitude)&directionsmode=driving") {
-            UIApplication.shared.open(url, options: [:])
-        }}
+                UIApplication.shared.open(url, options: [:])
+            }}
         else {
             //Open in browser
             if let urlDestination = URL.init(string: "https://www.google.co.in/maps/dir/?saddr=&daddr=(farestDropedObj!.coordinate.latitude),\(farestDropedObj!.coordinate.longitude)&directionsmode=driving") {
@@ -241,17 +242,17 @@ class RouteViewController: UIViewController {
     }
     
     func playAnimation() {
-      backGroundImgView.isHidden = false
-      progressView.isHidden = false
-    progressStackView.isHidden = false
-      lotView = LottieAnimationView(name: "optimizing")
-      lotView.frame = self.progressView.frame
-      self.progressView.addSubview(lotView)
+        backGroundImgView.isHidden = false
+        progressView.isHidden = false
+        progressStackView.isHidden = false
+        lotView = AnimationView(name: "optimizing") //LottieAnimationView(name: "optimizing")
+        lotView.frame = self.progressView.frame
+        self.progressView.addSubview(lotView)
         progressView.contentMode = .scaleAspectFit
-      lotView.animationSpeed = 1
-      lotView.loopMode = .loop
-      lotView.play()
-     }
+        lotView.animationSpeed = 1
+        lotView.loopMode = .loop
+        lotView.play()
+    }
     
     func stopAnimation()  {
         self.backGroundImgView.isHidden = true
@@ -276,13 +277,13 @@ extension RouteViewController : CLLocationManagerDelegate  {
     public func locationManager(_ manager: CLLocationManager,
                                 didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
-        case .notDetermined: break
-        case .restricted: break
-        case .denied:
-            NSLog("do some error handling")
-            break
-        default:
-            self.locationManager?.startUpdatingLocation()
+            case .notDetermined: break
+            case .restricted: break
+            case .denied:
+                NSLog("do some error handling")
+                break
+            default:
+                self.locationManager?.startUpdatingLocation()
         }
     }
     
@@ -303,11 +304,11 @@ extension RouteViewController : CLLocationManagerDelegate  {
         let point = MKPointAnnotation()
         point.title = title
         point.coordinate = location.coordinate
-      
+        
         self.mapView.addAnnotation(point)
         
-//        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
-//        self.mapView.setRegion(region, animated: true)
+        //        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
+        //        self.mapView.setRegion(region, animated: true)
     }
     
     
@@ -316,11 +317,11 @@ extension RouteViewController : CLLocationManagerDelegate  {
 extension RouteViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let identifier = "MyPin"
-
+        
         if !(annotation is CustomPointAnnotation) {
             return nil
         }
-
+        
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         if annotation is MKUserLocation {
             let pin = mapView.view(for: annotation) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
@@ -339,7 +340,7 @@ extension RouteViewController: MKMapViewDelegate {
                 annotationView?.image = UIImage(named: "loc_tab")
             }
             annotationView?.canShowCallout = true
-
+            
             // if you want a disclosure button, you'd might do something like:
             //
             // let detailButton = UIButton(type: .detailDisclosure)
@@ -347,19 +348,19 @@ extension RouteViewController: MKMapViewDelegate {
         } else {
             annotationView?.annotation = annotation
         }
-
+        
         return annotationView
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-
+        
         if let routePolyline = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(polyline: routePolyline)
             renderer.strokeColor = UIColor.systemRed.withAlphaComponent(0.9)
             renderer.lineWidth = 7
             return renderer
         }
-
+        
         return MKOverlayRenderer()
     }
     
@@ -368,14 +369,14 @@ extension RouteViewController: MKMapViewDelegate {
             getPinsUnderLocations(distanceFrom: i, distanceTo: d)
             if isRouteMatrixCompleted, farestObj != nil {
                 navigationView.isHidden = false
-            } 
+            }
         }
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard view.annotation is CustomPointAnnotation else { return }
         let gesture = UITapGestureRecognizer(target: self, action: #selector(RouteViewController.calloutTapped(sender:)))
-            view.addGestureRecognizer(gesture)
+        view.addGestureRecognizer(gesture)
     }
     
     @objc func calloutTapped(sender:UITapGestureRecognizer) {
@@ -398,10 +399,10 @@ extension RouteViewController: MKMapViewDelegate {
 }
 
 extension RouteViewController {
-  
+    
     func getPinsUnderLocations(distanceFrom: Int, distanceTo: Int) {
         print("distanceFrom", distanceFrom, "distanceTo", distanceTo)
-       
+        
         if let latitude = latitude, let longitude = longitude {
             let currentLocation = CLLocationCoordinate2D(latitude: latitude , longitude: longitude)
             let filter = locations.filter { Int($0.coordinate.distance(to: currentLocation)) >= distanceFrom && Int($0.coordinate.distance(to: currentLocation)) <= distanceTo }
@@ -470,31 +471,31 @@ extension RouteViewController {
         routeModel?.onSucessHandlingGoogleRouteMatrix = { [weak self] model in
             guard let self = self else { return }
             print(model.first?.destinationIndex)
-            routeMatrixModel.append(model)
+            self.routeMatrixModel.append(model)
             var furtherstDistanceInMeter : Int?
             for obj in model {
                 if furtherstDistanceInMeter == nil {
                     
-                    farestObj = obj
+                    self.farestObj = obj
                 } else if let objDis = obj.distanceMeters, let tempFurtherstDistanceInMeter = furtherstDistanceInMeter,
                           objDis > tempFurtherstDistanceInMeter {
                     furtherstDistanceInMeter = objDis
-                    farestObj = obj
+                    self.farestObj = obj
                 }
                 
                 furtherstDistanceInMeter = obj.distanceMeters
                 if  let objIndex  = obj.destinationIndex {
-                    farestDropedObj = filteredObj[objIndex]
+                    self.farestDropedObj = self.filteredObj[objIndex]
                 }
             }
             
-            routeModel?.onErrorHandlingGoogleRouteMatrix = { [weak self] error in
+            self.routeModel?.onErrorHandlingGoogleRouteMatrix = { [weak self] error in
                 guard let self = self else { return }
                 print(error)
                 self.stopAnimation()
             }
-            filteredObj = []
-            getPinsUnderLocations(distanceFrom: i, distanceTo: d)
+            self.filteredObj = []
+            self.getPinsUnderLocations(distanceFrom: self.i, distanceTo: self.d)
         }
     }
     
@@ -566,7 +567,7 @@ extension RouteViewController {
             routeModel?.makeRequestForRouteComputeApi(parameters: requestDictionary)
             
         }
-            
+        
         routeModel?.onSucessHandlingGoogleRoutePolyline = { [weak self] model in
             var distanceInMeters = 0
             var duration = 0
@@ -575,7 +576,7 @@ extension RouteViewController {
                     let coordinates: [CLLocationCoordinate2D]? = decodePolyline(strPolyine)
                     DispatchQueue.main.async { [weak self] in
                         guard let self = self else { return }
-                        stopAnimation()
+                        self.stopAnimation()
                         let durationInSec = obj.duration!.replacingOccurrences(of: "s", with: "")
                         duration = duration + (Int(durationInSec) ?? 0)
                         distanceInMeters = distanceInMeters + (obj.distanceMeters ?? 0)
@@ -589,9 +590,9 @@ extension RouteViewController {
     }
 }
 extension CLLocationCoordinate2D {
-
+    
     func distance(to coordinate: CLLocationCoordinate2D) -> Double {
-
+        
         return MKMapPoint(self).distance(to: MKMapPoint(coordinate))
     }
 }

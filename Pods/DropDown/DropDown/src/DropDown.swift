@@ -487,8 +487,7 @@ private extension DropDown {
 		isHidden = true
 
 		dismissMode = .onTap
-        tableView.layoutMargins = UIEdgeInsets.zero
-        tableView.separatorInset = UIEdgeInsets.zero
+
 		tableView.delegate = self
 		tableView.dataSource = self
 		
@@ -723,7 +722,7 @@ extension DropDown {
 	
 	fileprivate func fittingWidth() -> CGFloat {
 		if templateCell == nil {
-            templateCell = (cellNib.instantiate(withOwner: nil, options: nil)[0] as! DropDownCell)
+			templateCell = cellNib.instantiate(withOwner: nil, options: nil)[0] as! DropDownCell
 		}
 		
 		var maxWidth: CGFloat = 0
@@ -731,7 +730,7 @@ extension DropDown {
 		for index in 0..<dataSource.count {
 			configureCell(templateCell, at: index)
 			templateCell.bounds.size.height = cellHeight
-			let width = templateCell.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).width
+            let width = templateCell.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).width
 			
 			if width > maxWidth {
 				maxWidth = width
@@ -912,10 +911,8 @@ extension DropDown {
 	and `cellConfiguration` implicitly calls `reloadAllComponents()`.
 	*/
 	public func reloadAllComponents() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.setNeedsUpdateConstraints()
-        }
+		tableView.reloadData()
+		setNeedsUpdateConstraints()
 	}
 
 	/// (Pre)selects a row at a certain index.
@@ -1120,12 +1117,12 @@ extension DropDown {
 		NotificationCenter.default.addObserver(
 			self,
 			selector: #selector(keyboardUpdate),
-			name: UIResponder.keyboardWillShowNotification,
+            name: UIResponder.keyboardWillShowNotification,
 			object: nil)
 		NotificationCenter.default.addObserver(
 			self,
 			selector: #selector(keyboardUpdate),
-			name: UIResponder.keyboardWillHideNotification,
+            name: UIResponder.keyboardWillHideNotification,
 			object: nil)
 	}
 

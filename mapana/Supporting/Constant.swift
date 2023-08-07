@@ -18,6 +18,10 @@ struct ApiConstants {
     static let getAllComments = "survey/comment/"
     static let addAComment = "survey/comment"
     static let uploadImage = "survey/media/upload/"
+    static let getBoroughRouteByID = "survey/borough/route"
+    static let updateNavigation = "survey/sign/course"
+    static let crossPointNavigation = "survey/sign/update"
+    
     
     static let computeRouteMatrix = "https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix"
     static let computeRoute = "https://routes.googleapis.com/directions/v2:computeRoutes"
@@ -58,3 +62,4 @@ func getDate(time: Int) -> String {
 //  "routingPreference": ROUTING_PREFERENCE_UNSPECIFIED,
 //  "languageCode": en,
 //}
+

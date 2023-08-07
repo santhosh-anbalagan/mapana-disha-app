@@ -185,11 +185,11 @@ extension DetailsViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         detailsModel?.onSucessHandlingOfAddingImage = { [weak self] model in
             guard let self = self else { return }
-            detailsModel?.fetchAllImages(userID: String(describing: userID!))
+            self.detailsModel?.fetchAllImages(userID: String(describing: self.userID!))
         }
         
         detailsModel?.onSucessHandlingOfSurveyImages = { [weak self] model in
-            guard let self = self else { return }
+//            guard let self = self else { return }
         }
         
        

@@ -1,0 +1,2094 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 effective-4.1.50 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -O -module-name NbmapNavigation
+import AVFoundation
+import CarPlay
+import CoreGraphics
+import CoreLocation
+import Foundation
+import MobileCoreServices
+import Nbmap
+import NbmapCoreNavigation
+import NbmapDirections
+@_exported import NbmapNavigation
+import Swift
+import Turf
+import UIKit
+import UserNotifications
+import _Concurrency
+extension Nbmap.NGLMapView {
+  @_Concurrency.MainActor(unsafe) public var showsTraffic: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var showsIncidents: Swift.Bool {
+    get
+    set
+  }
+}
+public protocol BannerContainerViewDelegate : AnyObject, NbmapCoreNavigation.UnimplementedLogging {
+  func bannerContainerView(_ bannerContainerView: NbmapNavigation.BannerContainerView, stateWillChangeTo state: NbmapNavigation.BannerContainerView.State)
+  func bannerContainerView(_ bannerContainerView: NbmapNavigation.BannerContainerView, stateDidChangeTo state: NbmapNavigation.BannerContainerView.State)
+  func bannerContainerView(_ bannerContainerView: NbmapNavigation.BannerContainerView, didExpandTo fraction: CoreGraphics.CGFloat)
+}
+extension NbmapNavigation.BannerContainerViewDelegate {
+  public func bannerContainerView(_ bannerContainerView: NbmapNavigation.BannerContainerView, stateWillChangeTo state: NbmapNavigation.BannerContainerView.State)
+  public func bannerContainerView(_ bannerContainerView: NbmapNavigation.BannerContainerView, stateDidChangeTo state: NbmapNavigation.BannerContainerView.State)
+  public func bannerContainerView(_ bannerContainerView: NbmapNavigation.BannerContainerView, didExpandTo fraction: CoreGraphics.CGFloat)
+}
+@_inheritsConvenienceInitializers @objc(NBInstructionLabel) @_Concurrency.MainActor(unsafe) open class InstructionLabel : NbmapNavigation.StylableLabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol VisualInstructionDelegate : AnyObject, NbmapCoreNavigation.UnimplementedLogging {
+  func label(_ label: NbmapNavigation.InstructionLabel, willPresent instruction: NbmapDirections.VisualInstruction, as presented: Foundation.NSAttributedString) -> Foundation.NSAttributedString?
+}
+extension NbmapNavigation.VisualInstructionDelegate {
+  public func label(_ label: NbmapNavigation.InstructionLabel, willPresent instruction: NbmapDirections.VisualInstruction, as presented: Foundation.NSAttributedString) -> Foundation.NSAttributedString?
+}
+@_inheritsConvenienceInitializers @objc(NBManeuversStyleKit) public class ManeuversStyleKit : ObjectiveC.NSObject {
+  @objc dynamic public class func drawArrow180right(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawArrowright(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawArrowslightright(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawArrowstraight(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawArrowsharpright(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawArrive(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawStarting(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawDestination(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawMerge(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawFork(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawOfframp(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawArriveright(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawRoundabout(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), roundabout_angle: CoreGraphics.CGFloat = 90, roundabout_radius: CoreGraphics.CGFloat = 6.5)
+  @objc dynamic public class func drawArriveright2(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: NbmapNavigation.ManeuversStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc(ManeuversStyleKitResizingBehavior) public enum ResizingBehavior : Swift.Int {
+    case aspectFit
+    case aspectFill
+    case stretch
+    case center
+    public func apply(rect: CoreGraphics.CGRect, target: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayManager : CarPlay.CPSearchTemplateDelegate {
+  public static let CarPlayGeocodedPlacemarkKey: Swift.String
+  @objc dynamic public func searchTemplate(_ searchTemplate: CarPlay.CPSearchTemplate, updatedSearchText searchText: Swift.String, completionHandler: @escaping ([CarPlay.CPListItem]) -> Swift.Void)
+  @objc dynamic public func searchTemplateSearchButtonPressed(_ searchTemplate: CarPlay.CPSearchTemplate)
+  @objc dynamic public func searchTemplate(_ searchTemplate: CarPlay.CPSearchTemplate, selectedResult item: CarPlay.CPListItem, completionHandler: @escaping () -> Swift.Void)
+  @available(iOS 12.0, *)
+  public static func searchTemplate(_ searchTemplate: CarPlay.CPSearchTemplate, updatedSearchText searchText: Swift.String, completionHandler: @escaping ([CarPlay.CPListItem]) -> Swift.Void)
+  @available(iOS 12.0, *)
+  public static func carPlayManager(_ searchTemplate: CarPlay.CPSearchTemplate, selectedResult item: CarPlay.CPListItem, completionHandler: @escaping () -> Swift.Void)
+}
+public let NBRouteLineWidthByZoomLevel: [Swift.Int : Foundation.NSExpression]
+public var NavigationMapViewMinimumDistanceForOverheadZooming: Swift.Double
+public let NBCurrentLegAttribute: Swift.String
+public let NBCongestionAttribute: Swift.String
+public let RestrictedRoadClassAttribute: Swift.String
+public let NavigationViewMinimumVolumeForWarning: Swift.Float
+public var GradientCongestionFadingDistance: Swift.Double
+public typealias CarPlayUserInfo = [Swift.String : Any?]
+extension Foundation.NSAttributedString {
+  @available(iOS 10.0, *)
+  public func pronounced(_ pronunciation: Swift.String) -> Foundation.NSAttributedString
+}
+@_inheritsConvenienceInitializers @objc(NBRouteVoiceController) open class RouteVoiceController : ObjectiveC.NSObject, AVFAudio.AVSpeechSynthesizerDelegate {
+  @objc public var playRerouteSound: Swift.Bool
+  @objc public var rerouteSoundPlayer: AVFAudio.AVAudioPlayer
+  weak public var voiceControllerDelegate: NbmapNavigation.VoiceControllerDelegate?
+  @objc override dynamic public init()
+  @objc deinit
+  @objc public func speechSynthesizer(_ synthesizer: AVFAudio.AVSpeechSynthesizer, didFinish utterance: AVFAudio.AVSpeechUtterance)
+  @objc open func didPassSpokenInstructionPoint(notification: Foundation.NSNotification)
+  open func speak(_ instruction: NbmapDirections.SpokenInstruction)
+}
+@objc(NBVoiceControllerDelegate) public protocol VoiceControllerDelegate {
+  @objc(voiceController:spokenInstrucionsDidFailWithError:) optional func voiceController(_ voiceController: NbmapNavigation.RouteVoiceController, spokenInstructionsDidFailWith error: Swift.Error)
+  @objc(voiceController:didInterruptSpokenInstruction:withInstruction:) optional func voiceController(_ voiceController: NbmapNavigation.RouteVoiceController, didInterrupt interruptedInstruction: NbmapDirections.SpokenInstruction, with interruptingInstruction: NbmapDirections.SpokenInstruction)
+  @objc(voiceController:willSpeakSpokenInstruction:routeProgress:) optional func voiceController(_ voiceController: NbmapNavigation.RouteVoiceController, willSpeak instruction: NbmapDirections.SpokenInstruction, routeProgress: NbmapCoreNavigation.RouteProgress) -> NbmapDirections.SpokenInstruction?
+}
+extension NbmapDirections.CongestionLevel {
+  @available(iOS 12.0, *)
+  public var asCPTimeRemainingColor: CarPlay.CPTimeRemainingColor {
+    get
+  }
+}
+extension Swift.Dictionary where Key == Swift.Int, Value : Foundation.NSExpression {
+  public func multiplied(by factor: Swift.Double) -> Swift.Dictionary<Key, Value>
+}
+public typealias ContainerViewController = UIKit.UIViewController & NbmapNavigation.NavigationComponent
+@objc(NBNavigationViewController) @_Concurrency.MainActor(unsafe) open class NavigationViewController : UIKit.UIViewController, NbmapNavigation.NavigationStatusPresenter {
+  @_Concurrency.MainActor(unsafe) public var navigationView: NbmapNavigation.NavigationView {
+    get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var navigationMapView: NbmapNavigation.NavigationMapView? {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public var route: NbmapDirections.Route? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var routes: [NbmapDirections.Route] {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var routeIndex: Swift.Int {
+    get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var pendingCamera: Nbmap.NGLMapCamera?
+  @objc @_Concurrency.MainActor(unsafe) public var origin: Nbmap.NGLAnnotation?
+  @_Concurrency.MainActor(unsafe) weak public var delegate: NbmapNavigation.NavigationViewControllerDelegate?
+  @objc @_Concurrency.MainActor(unsafe) public var voiceController: NbmapNavigation.RouteVoiceController!
+  @_Concurrency.MainActor(unsafe) public var navigationService: NbmapCoreNavigation.NavigationService! {
+    get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var snapsUserLocationAnnotationToRoute: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public var sendsNotifications: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var navigationOptions: NbmapNavigation.NavigationOptions?
+  @_Concurrency.MainActor(unsafe) public var routeOptions: NbmapDirections.RouteOptions? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func traversingTunnel() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var usesNightStyleWhileInTunnel: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var navigationDataEventTracking: NbmapCoreNavigation.NavigationEventTracking?
+  @_Concurrency.MainActor(unsafe) public var routeLineTracksTraversal: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var dissolvedRouteLineStyle: NbmapNavigation.DissolvedRouteLineStyle {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var showsEndOfRouteFeedback: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var showsReportFeedback: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var showsSpeed: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var detailedFeedbackEnabled: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) open var floatingButtons: [UIKit.UIButton]? {
+    get
+    set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var automaticallyAdjustsStyleForTimeOfDay: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var shouldManageApplicationIdleTimer: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public var isUsedInConjunctionWithCarPlayWindow: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) public var annotatesSpokenInstructions: Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) public func show(_ status: NbmapNavigation.StatusView.Status)
+  @_Concurrency.MainActor(unsafe) public func hide(_ status: NbmapNavigation.StatusView.Status)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) required public init(for routes: [NbmapDirections.Route]? = nil, routeIndex: Swift.Int? = 0, navigationOptions: NbmapNavigation.NavigationOptions? = nil, routeOptions: NbmapDirections.RouteOptions? = nil)
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLayoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func preferredContentSizeDidChange(forChildContentContainer container: UIKit.UIContentContainer)
+  @available(iOS 12.0, *)
+  @_Concurrency.MainActor(unsafe) public class func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, didBeginNavigationWith navigationService: NbmapCoreNavigation.NavigationService, window: UIKit.UIWindow)
+  @available(iOS 12.0, *)
+  @_Concurrency.MainActor(unsafe) public class func carPlayManagerDidEndNavigation(_ carPlayManager: NbmapNavigation.CarPlayManager, window: UIKit.UIWindow)
+}
+extension NbmapNavigation.NavigationViewController : NbmapCoreNavigation.NavigationServiceDelegate {
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didUpdate progress: NbmapCoreNavigation.RouteProgress, with location: CoreLocation.CLLocation, rawLocation: CoreLocation.CLLocation)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didPassSpokenInstructionPoint instruction: NbmapDirections.SpokenInstruction, routeProgress: NbmapCoreNavigation.RouteProgress)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didPassVisualInstructionPoint instruction: NbmapDirections.VisualInstructionBanner, routeProgress: NbmapCoreNavigation.RouteProgress)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, shouldRerouteFrom location: CoreLocation.CLLocation) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, willRerouteFrom location: CoreLocation.CLLocation)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, willTakeAlternativeRoute route: NbmapDirections.Route, at location: CoreLocation.CLLocation?)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didTakeAlternativeRouteAt location: CoreLocation.CLLocation?)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didFailToTakeAlternativeRouteAt location: CoreLocation.CLLocation?)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, shouldDiscard location: CoreLocation.CLLocation) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didRerouteAlong route: NbmapDirections.Route, at location: CoreLocation.CLLocation?, proactive: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didFailToRerouteWith error: Swift.Error)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didRefresh routeProgress: NbmapCoreNavigation.RouteProgress)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didArriveAt waypoint: NbmapDirections.Waypoint) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, willBeginSimulating progress: NbmapCoreNavigation.RouteProgress, becauseOf reason: NbmapCoreNavigation.SimulationIntent)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didBeginSimulating progress: NbmapCoreNavigation.RouteProgress, becauseOf reason: NbmapCoreNavigation.SimulationIntent)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, willEndSimulating progress: NbmapCoreNavigation.RouteProgress, becauseOf reason: NbmapCoreNavigation.SimulationIntent)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didEndSimulating progress: NbmapCoreNavigation.RouteProgress, becauseOf reason: NbmapCoreNavigation.SimulationIntent)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, shouldPreventReroutesWhenArrivingAt waypoint: NbmapDirections.Waypoint) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func navigationServiceShouldDisableBatteryMonitoring(_ service: NbmapCoreNavigation.NavigationService) -> Swift.Bool
+}
+extension NbmapNavigation.NavigationViewController : NbmapNavigation.StyleManagerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func locationFor(styleManager: NbmapNavigation.StyleManager) -> CoreLocation.CLLocation?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func styleManager(_ styleManager: NbmapNavigation.StyleManager, didApply style: NbmapNavigation.Style)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func styleManagerDidRefreshAppearance(_ styleManager: NbmapNavigation.StyleManager)
+}
+extension NbmapNavigation.NavigationViewController : NbmapNavigation.TopBannerViewControllerDelegate {
+  @_Concurrency.MainActor(unsafe) public func preview(step: NbmapDirections.RouteStep, in banner: NbmapNavigation.TopBannerViewController, remaining: [NbmapDirections.RouteStep], route: NbmapDirections.Route, animated: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) public func label(_ label: NbmapNavigation.InstructionLabel, willPresent instruction: NbmapDirections.VisualInstruction, as presented: Foundation.NSAttributedString) -> Foundation.NSAttributedString?
+}
+extension NbmapNavigation.NavigationViewController : NbmapNavigation.BottomBannerViewControllerDelegate {
+  @_Concurrency.MainActor(unsafe) public func bottomBanner(_ banner: NbmapNavigation.BottomBannerViewController, didSelect legIndex: Swift.Int, stepIndex: Swift.Int, cell: NbmapNavigation.StepTableViewCell)
+  @_Concurrency.MainActor(unsafe) public func didTapCancel(_ sender: Any)
+  @_Concurrency.MainActor(unsafe) public func didTapOverview(_ sender: Any)
+}
+extension NbmapNavigation.NavigationViewController : NbmapNavigation.CarPlayConnectionObserver {
+  @_Concurrency.MainActor(unsafe) public func didConnectToCarPlay()
+  @_Concurrency.MainActor(unsafe) public func didDisconnectFromCarPlay()
+}
+extension NbmapNavigation.NavigationViewController : NbmapNavigation.NavigationMapViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, routeStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, routeCasingStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, waypointStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, waypointSymbolStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, shapeFor waypoints: [NbmapDirections.Waypoint], legIndex: Swift.Int) -> Nbmap.NGLShape?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, shapeFor routes: [NbmapDirections.Route]) -> Nbmap.NGLShape?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, didSelect route: NbmapDirections.Route)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, simplifiedShapeFor route: NbmapDirections.Route) -> Nbmap.NGLShape?
+  @_Concurrency.MainActor(unsafe) public func navigationMapView(_ mapView: Nbmap.NGLMapView, imageFor annotation: Nbmap.NGLAnnotation) -> Nbmap.NGLAnnotationImage?
+  @_Concurrency.MainActor(unsafe) public func navigationMapView(_ mapView: Nbmap.NGLMapView, viewFor annotation: Nbmap.NGLAnnotation) -> Nbmap.NGLAnnotationView?
+  @_Concurrency.MainActor(unsafe) public func navigationMapViewUserAnchorPoint(_ mapView: NbmapNavigation.NavigationMapView) -> CoreGraphics.CGPoint
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func mapView(_ mapView: Nbmap.NGLMapView, didFinishLoading style: Nbmap.NGLStyle)
+}
+extension NbmapNavigation.NavigationViewController : Nbmap.NGLMapViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func mapView(_ mapView: Nbmap.NGLMapView, imageFor annotation: Nbmap.NGLAnnotation) -> Nbmap.NGLAnnotationImage?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func mapView(_ mapView: Nbmap.NGLMapView, viewFor annotation: Nbmap.NGLAnnotation) -> Nbmap.NGLAnnotationView?
+}
+extension NbmapNavigation.NavigationMapView {
+  @_Concurrency.MainActor(unsafe) public func updateRouteLine(routeProgress: NbmapCoreNavigation.RouteProgress, coordinate: CoreLocation.CLLocationCoordinate2D?, routes: [NbmapDirections.Route], shouldRedraw: Swift.Bool = false)
+  @_Concurrency.MainActor(unsafe) public func updateUpcomingRoutePointIndex(routeProgress: NbmapCoreNavigation.RouteProgress, coordinate: CoreLocation.CLLocationCoordinate2D?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func travelAlongRouteLine(to coordinate: CoreLocation.CLLocationCoordinate2D?, by verhence: Swift.Bool = false)
+}
+public protocol InstructionsBannerViewDelegate : NbmapNavigation.VisualInstructionDelegate {
+  func didTapInstructionsBanner(_ sender: NbmapNavigation.BaseInstructionsBannerView)
+  func didSwipeInstructionsBanner(_ sender: NbmapNavigation.BaseInstructionsBannerView, swipeDirection direction: UIKit.UISwipeGestureRecognizer.Direction)
+}
+extension NbmapNavigation.InstructionsBannerViewDelegate {
+  public func didTapInstructionsBanner(_ sender: NbmapNavigation.BaseInstructionsBannerView)
+  public func didSwipeInstructionsBanner(_ sender: NbmapNavigation.BaseInstructionsBannerView, swipeDirection direction: UIKit.UISwipeGestureRecognizer.Direction)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SpeedView : UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var signBackColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var textColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var regulatoryBorderColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public var speedLimit: Foundation.Measurement<Foundation.UnitSpeed>? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var currentSpeed: Foundation.Measurement<Foundation.UnitSpeed>? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var formatedUnit: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var signStandard: NbmapCoreNavigation.SignStandard? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var isAlwaysHidden: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var shouldShowUnknownSpeedLimit: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var shouldShowUnknownSpeed: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(_ rect: CoreGraphics.CGRect)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBStyleKitMarker) public class StyleKitMarker : ObjectiveC.NSObject {
+  @objc dynamic public class func drawMarker(frame: CoreGraphics.CGRect = CGRect(x: 57, y: 27, width: 50, height: 50), innerColor: UIKit.UIColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000), shadowColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), pinColor: UIKit.UIColor = UIColor(red: 0.290, green: 0.565, blue: 0.886, alpha: 1.000), strokeColor: UIKit.UIColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000))
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Swift.String {
+  public var nonEmptyString: Swift.String? {
+    get
+  }
+}
+open class NavigationOptions {
+  open var styles: [NbmapNavigation.Style]?
+  open var topBanner: NbmapNavigation.ContainerViewController?
+  open var bottomBanner: NbmapNavigation.ContainerViewController?
+  open var navigationMapView: NbmapNavigation.NavigationMapView?
+  open var navigationService: NbmapCoreNavigation.NavigationService?
+  open var voiceController: NbmapNavigation.RouteVoiceController?
+  required public init()
+  convenience public init(styles: [NbmapNavigation.Style]? = [DayStyle(), NightStyle()], navigationService: NbmapCoreNavigation.NavigationService? = nil, voiceController: NbmapNavigation.RouteVoiceController? = nil, topBanner: NbmapNavigation.ContainerViewController? = nil, bottomBanner: NbmapNavigation.ContainerViewController? = nil, navigationMapView: NbmapNavigation.NavigationMapView? = nil)
+  public class func navigationOptions() -> Self
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBNavigationMapView) @_Concurrency.MainActor(unsafe) open class NavigationMapView : Nbmap.NGLMapView, UIKit.UIGestureRecognizerDelegate, Nbmap.NGLMapViewDelegate {
+  @objc @_Concurrency.MainActor(unsafe) public var defaultAltitude: Swift.Double
+  @objc @_Concurrency.MainActor(unsafe) public var zoomedOutMotorwayAltitude: Swift.Double
+  @objc @_Concurrency.MainActor(unsafe) public var longManeuverDistance: Swift.Double
+  @objc @_Concurrency.MainActor(unsafe) public var tapGestureDistanceThreshold: CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) weak public var navigationMapDelegate: NbmapNavigation.NavigationMapViewDelegate?
+  @_Concurrency.MainActor(unsafe) public var routeLineTracksTraversal: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var dissolvedRouteLineStyle: NbmapNavigation.DissolvedRouteLineStyle {
+    get
+    set
+  }
+  @objc public enum DurationSymbolType : Swift.Int {
+    case ROUTE_DURATION = 0
+    case ROUTE_DURATION_DIFF = 1
+    case NONE_ROUTE_DURATION = 2
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var trafficUnknownColor: UIKit.UIColor
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var trafficLowColor: UIKit.UIColor
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var trafficModerateColor: UIKit.UIColor
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var trafficHeavyColor: UIKit.UIColor
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var trafficSevereColor: UIKit.UIColor
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var routeCasingColor: UIKit.UIColor
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var routeAlternateColor: UIKit.UIColor
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var routeAlternateCasingColor: UIKit.UIColor
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var maneuverArrowColor: UIKit.UIColor
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var maneuverArrowStrokeColor: UIKit.UIColor
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var traversedRouteColor: UIKit.UIColor
+  @_Concurrency.MainActor(unsafe) public var vehiclelocation: NbmapNavigation.LocationSubject! {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var userLocationStyle: NbmapNavigation.UserLocationStyle? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var showsUserLocation: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public var navigationCamera: NbmapNavigation.NavigationCamera! {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder decoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect, styleURL: Foundation.URL?)
+  @_Concurrency.MainActor(unsafe) public init(frame: CoreGraphics.CGRect, navigationCameraType: NbmapNavigation.NavigationCameraType = .mobile)
+  @objc deinit
+  @objc override dynamic open func prepareForInterfaceBuilder()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func anchorPoint(forGesture gesture: UIKit.UIGestureRecognizer) -> CoreGraphics.CGPoint
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func mapViewDidFinishRenderingFrameFullyRendered(_ fullyRendered: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func updatePreferredFrameRate(for routeProgress: NbmapCoreNavigation.RouteProgress)
+  @objc @_Concurrency.MainActor(unsafe) public func movePuckToCurrentLocation(location: CoreLocation.CLLocation?, animated: Swift.Bool = false, updateWaynameLabel: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) public func getVisibleRoadFeatures(in coordinate: CoreLocation.CLLocationCoordinate2D, length: CoreLocation.CLLocationDistance = 50.0) -> [Nbmap.NGLFeature]
+  @_Concurrency.MainActor(unsafe) public static let defaultPadding: UIKit.UIEdgeInsets
+  @objc @_Concurrency.MainActor(unsafe) public func showcase(_ routes: [NbmapDirections.Route], padding: UIKit.UIEdgeInsets = NavigationMapView.defaultPadding, animated: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) public func showRoutes(_ routes: [NbmapDirections.Route], legIndex: Swift.Int = 0)
+  @objc @_Concurrency.MainActor(unsafe) public func removeRoutes()
+  @objc @_Concurrency.MainActor(unsafe) public func showWaypoints(_ route: NbmapDirections.Route, legIndex: Swift.Int = 0)
+  @objc @_Concurrency.MainActor(unsafe) public func removeWaypoints()
+  @objc @_Concurrency.MainActor(unsafe) public func addArrow(route: NbmapDirections.Route, legIndex: Swift.Int, stepIndex: Swift.Int)
+  @objc @_Concurrency.MainActor(unsafe) public func removeArrow()
+  @objc @_Concurrency.MainActor(unsafe) public func showRouteDurationSymbol(_ routes: [NbmapDirections.Route], durationSymbolType: NbmapNavigation.NavigationMapView.DurationSymbolType = .ROUTE_DURATION)
+  @objc @_Concurrency.MainActor(unsafe) public func removeRouteDurationSymbol()
+  @objc @_Concurrency.MainActor(unsafe) public func appendWayNameLayer()
+  @objc @_Concurrency.MainActor(unsafe) public func localizeLabels()
+  @objc @_Concurrency.MainActor(unsafe) public func showVoiceInstructionsOnMap(route: NbmapDirections.Route)
+  @objc @_Concurrency.MainActor(unsafe) public func setOverheadCameraView(from userLocation: CoreLocation.CLLocationCoordinate2D, along coordinates: [CoreLocation.CLLocationCoordinate2D], for bounds: UIKit.UIEdgeInsets)
+}
+extension NbmapNavigation.NavigationMapView : NbmapNavigation.NavigationCameraDelegate {
+  @_Concurrency.MainActor(unsafe) public func navigationCameraStateDidChange(state: NbmapNavigation.NavigationCameraState)
+}
+@objc(NBNavigationMapViewDelegate) public protocol NavigationMapViewDelegate {
+  @objc optional func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, routeStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  @objc optional func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, waypointStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  @objc optional func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, waypointSymbolStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  @objc optional func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, routeCasingStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  @objc optional func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, alternativeRouteStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  @objc optional func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, alternativeRouteCasingStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  @objc(navigationMapView:didSelectRoute:) optional func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, didSelect route: NbmapDirections.Route)
+  @objc(navigationMapView:didSelectWaypoint:) optional func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, didSelect waypoint: NbmapDirections.Waypoint)
+  @objc(navigationMapView:shapeForRoutes:) optional func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, shapeFor routes: [NbmapDirections.Route]) -> Nbmap.NGLShape?
+  @objc(navigationMapView:simplifiedShapeForRoute:) optional func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, simplifiedShapeFor route: NbmapDirections.Route) -> Nbmap.NGLShape?
+  @objc(navigationMapView:shapeForWaypoints:legIndex:) optional func navigationMapView(_ mapView: NbmapNavigation.NavigationMapView, shapeFor waypoints: [NbmapDirections.Waypoint], legIndex: Swift.Int) -> Nbmap.NGLShape?
+}
+public protocol NavigationComponent : NbmapCoreNavigation.NavigationServiceDelegate {
+  var navigationDataEventTracking: NbmapCoreNavigation.NavigationEventTracking? { get set }
+}
+public protocol NavigationMapInteractionObserver : AnyObject {
+  func navigationViewController(didCenterOn location: CoreLocation.CLLocation)
+}
+public protocol CarPlayConnectionObserver : AnyObject {
+  func didConnectToCarPlay()
+  func didDisconnectFromCarPlay()
+}
+public protocol NavigationStatusPresenter : AnyObject {
+  func show(_: NbmapNavigation.StatusView.Status)
+  func hide(_: NbmapNavigation.StatusView.Status)
+}
+public protocol BottomBannerViewControllerDelegate : AnyObject {
+  func didTapCancel(_ sender: Any)
+  func didTapOverview(_ sender: Any)
+  func bottomBanner(_ banner: NbmapNavigation.BottomBannerViewController, didSelect legIndex: Swift.Int, stepIndex: Swift.Int, cell: NbmapNavigation.StepTableViewCell)
+}
+@_inheritsConvenienceInitializers @objc(NBStepsBackgroundView) @_Concurrency.MainActor(unsafe) open class StepsBackgroundView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol StepsViewControllerDelegate : AnyObject {
+  func stepsViewController(_ viewController: NbmapNavigation.StepsViewController, didSelect legIndex: Swift.Int, stepIndex: Swift.Int, cell: NbmapNavigation.StepTableViewCell)
+}
+@_inheritsConvenienceInitializers @objc(NBStepsViewController) @_Concurrency.MainActor(unsafe) public class StepsViewController : UIKit.UIViewController, NbmapNavigation.NavigationComponent {
+  @_Concurrency.MainActor(unsafe) weak public var delegate: NbmapNavigation.StepsViewControllerDelegate?
+  @_Concurrency.MainActor(unsafe) weak public var navigationDataEventTracking: NbmapCoreNavigation.NavigationEventTracking?
+  @_Concurrency.MainActor(unsafe) convenience public init(routeProgress: NbmapCoreNavigation.RouteProgress)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) public func dropDownAnimation()
+  @_Concurrency.MainActor(unsafe) public func slideUpAnimation(completion: NbmapNavigation.CompletionHandler? = nil)
+  @_Concurrency.MainActor(unsafe) public func dismiss(completion: NbmapNavigation.CompletionHandler? = nil)
+  @_Concurrency.MainActor(unsafe) public func tableViewHeight() -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+extension NbmapNavigation.StepsViewController : UIKit.UIGestureRecognizerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+}
+extension NbmapNavigation.StepsViewController : UIKit.UITableViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+}
+extension NbmapNavigation.StepsViewController : UIKit.UITableViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, willDisplay cell: UIKit.UITableViewCell, forRowAt indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, titleForHeaderInSection section: Swift.Int) -> Swift.String?
+}
+@_inheritsConvenienceInitializers @objc(NBStepInstructionsView) @_Concurrency.MainActor(unsafe) open class StepInstructionsView : NbmapNavigation.BaseInstructionsBannerView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(NBStepTableViewCell) @_Concurrency.MainActor(unsafe) open class StepTableViewCell : UIKit.UITableViewCell {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func prepareForReuse()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBDayStyle) open class DayStyle : NbmapNavigation.Style {
+  @objc required dynamic public init()
+  @objc override open func apply()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBNightStyle) open class NightStyle : NbmapNavigation.DayStyle {
+  @objc required dynamic public init()
+  @objc override open func apply()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class GenericRouteShield : NbmapNavigation.StylableView {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @IBDesignable @objc(NBLanesView) @_Concurrency.MainActor(unsafe) open class LanesView : UIKit.UIView, NbmapNavigation.NavigationComponent {
+  @_Concurrency.MainActor(unsafe) public var isCurrentlyVisible: Swift.Bool
+  public typealias CompletionHandler = (_ completed: Swift.Bool) -> Swift.Void
+  @_Concurrency.MainActor(unsafe) public func update(for visualInstruction: NbmapDirections.VisualInstructionBanner?, animated: Swift.Bool = true, duration: Foundation.TimeInterval = 0.5, completion: NbmapNavigation.LanesView.CompletionHandler? = nil)
+  @_Concurrency.MainActor(unsafe) public func show(animated: Swift.Bool = true, duration: Foundation.TimeInterval = 0.5, completion: NbmapNavigation.LanesView.CompletionHandler? = nil)
+  @_Concurrency.MainActor(unsafe) public func hide(animated: Swift.Bool = true, duration: Foundation.TimeInterval = 0.5, completion: NbmapNavigation.LanesView.CompletionHandler? = nil)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didPassVisualInstructionPoint instruction: NbmapDirections.VisualInstructionBanner, routeProgress: NbmapCoreNavigation.RouteProgress)
+  @_Concurrency.MainActor(unsafe) weak public var navigationDataEventTracking: NbmapCoreNavigation.NavigationEventTracking?
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func prepareForInterfaceBuilder()
+  @objc deinit
+}
+@IBDesignable @objc(NBNavigationView) @_Concurrency.MainActor(unsafe) open class NavigationView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var navigationMapView: NbmapNavigation.NavigationMapView {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var floatingStackView: UIKit.UIStackView {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var floatingButtons: [UIKit.UIButton]? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var wayNameView: NbmapNavigation.WayNameView {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var speedView: NbmapNavigation.SpeedView {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var topBannerContainerView: NbmapNavigation.BannerContainerView {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var bottomBannerContainerView: NbmapNavigation.BannerContainerView {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public init(frame: CoreGraphics.CGRect, navigationMapView: NbmapNavigation.NavigationMapView? = nil)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder decoder: Foundation.NSCoder)
+  @objc override dynamic open func prepareForInterfaceBuilder()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @available(iOS 12.0, *)
+@_Concurrency.MainActor(unsafe) public class CarPlayNavigationViewController : UIKit.UIViewController, Nbmap.NGLMapViewDelegate {
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: NbmapNavigation.CarPlayNavigationDelegate?
+  @_Concurrency.MainActor(unsafe) public var navigationMapView: NbmapNavigation.NavigationMapView? {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var usesNightStyleWhileInTunnel: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var carPlayManager: NbmapNavigation.CarPlayManager
+  @_Concurrency.MainActor(unsafe) public var styles: [NbmapNavigation.Style] {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var styleManager: NbmapNavigation.StyleManager! {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var navigationService: NbmapCoreNavigation.NavigationService! {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public init(for navigationService: NbmapCoreNavigation.NavigationService, mapTemplate: CarPlay.CPMapTemplate, interfaceController: CarPlay.CPInterfaceController, manager: NbmapNavigation.CarPlayManager, styles: [NbmapNavigation.Style]? = nil)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewSafeAreaInsetsDidChange()
+  @objc(startNavigationSessionForTrip:) @_Concurrency.MainActor(unsafe) public func startNavigationSession(for trip: CarPlay.CPTrip)
+  @objc(exitNavigationByCanceling:) @_Concurrency.MainActor(unsafe) public func exitNavigation(byCanceling canceled: Swift.Bool = false)
+  @objc @_Concurrency.MainActor(unsafe) public func showFeedback()
+  @objc @_Concurrency.MainActor(unsafe) public var tracksUserCourse: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public func beginPanGesture()
+  @_Concurrency.MainActor(unsafe) @objc public func mapView(_ mapView: Nbmap.NGLMapView, didFinishLoading style: Nbmap.NGLStyle)
+  @objc deinit
+}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayNavigationViewController : NbmapNavigation.StyleManagerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func locationFor(styleManager: NbmapNavigation.StyleManager) -> CoreLocation.CLLocation?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func styleManager(_ styleManager: NbmapNavigation.StyleManager, didApply style: NbmapNavigation.Style)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func styleManagerDidRefreshAppearance(_ styleManager: NbmapNavigation.StyleManager)
+}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayNavigationViewController : NbmapCoreNavigation.RouterDelegate {
+  @_Concurrency.MainActor(unsafe) public func routeController(_ routeController: NbmapCoreNavigation.RouteController, didArriveAt waypoint: NbmapDirections.Waypoint) -> Swift.Bool
+}
+@available(iOS 12.0, *)
+@objc(NBNavigationCarPlayDelegate) public protocol CarPlayNavigationDelegate {
+  @objc(carPlayNavigationViewControllerDidDismiss:byCanceling:) func carPlayNavigationViewControllerDidDismiss(_ carPlayNavigationViewController: NbmapNavigation.CarPlayNavigationViewController, byCanceling canceled: Swift.Bool)
+  @objc func carPlayNavigationViewControllerDidArrive(_ carPlayNavigationViewController: NbmapNavigation.CarPlayNavigationViewController)
+}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayNavigationViewController : CarPlay.CPSessionConfigurationDelegate {
+  @available(iOS 13.0, *)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func sessionConfiguration(_ sessionConfiguration: CarPlay.CPSessionConfiguration, contentStyleChanged contentStyle: CarPlay.CPContentStyle)
+}
+@objc @_inheritsConvenienceInitializers public class SpeedLimitStyleKit : ObjectiveC.NSObject {
+  @objc dynamic public class func drawMUTCD(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 56, height: 66), resizing: NbmapNavigation.SpeedLimitStyleKit.ResizingBehavior = .aspectFit, signBackColor: UIKit.UIColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000), strokeColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), limit: Swift.String = "50", legend: Swift.String = "MAX")
+  @objc dynamic public class func drawVienna(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 70, height: 70), resizing: NbmapNavigation.SpeedLimitStyleKit.ResizingBehavior = .aspectFit, signBackColor: UIKit.UIColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000), strokeColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), regulatoryColor: UIKit.UIColor = UIColor(red: 0.800, green: 0.000, blue: 0.000, alpha: 1.000), limit: Swift.String = "50")
+  @objc dynamic public class func drawSpeedOnly(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 70, height: 70), resizing: NbmapNavigation.SpeedLimitStyleKit.ResizingBehavior = .aspectFit, signBackColor: UIKit.UIColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000), strokeColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), speed: Swift.String = "50", measurement: Swift.String = "km/h")
+  @objc(SpeedLimitStyleKitResizingBehavior) public enum ResizingBehavior : Swift.Int {
+    case aspectFit
+    case aspectFill
+    case stretch
+    case center
+    public func apply(rect: CoreGraphics.CGRect, target: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct OverviewCameraOptions : Swift.Equatable {
+  public var maximumZoomLevel: Swift.Double {
+    get
+    set
+  }
+  public var centerUpdatesAllowed: Swift.Bool
+  public var zoomUpdatesAllowed: Swift.Bool
+  public var bearingUpdatesAllowed: Swift.Bool
+  public var pitchUpdatesAllowed: Swift.Bool
+  public var paddingUpdatesAllowed: Swift.Bool
+  public init()
+  public static func == (lhs: NbmapNavigation.OverviewCameraOptions, rhs: NbmapNavigation.OverviewCameraOptions) -> Swift.Bool
+}
+public enum NavigationImages {
+}
+@objc @_Concurrency.MainActor(unsafe) public class JunctionView : UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) public func show(animated: Swift.Bool = false)
+  @_Concurrency.MainActor(unsafe) public func update(for visualInstruction: NbmapDirections.VisualInstructionBanner?, service: NbmapCoreNavigation.NavigationService)
+  @_Concurrency.MainActor(unsafe) public func hide(delay: Foundation.TimeInterval = 0, animated: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBEndOfRouteContentView) @_Concurrency.MainActor(unsafe) open class EndOfRouteContentView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBEndOfRouteTitleLabel) @_Concurrency.MainActor(unsafe) open class EndOfRouteTitleLabel : NbmapNavigation.StylableLabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBEndOfRouteStaticLabel) @_Concurrency.MainActor(unsafe) open class EndOfRouteStaticLabel : NbmapNavigation.StylableLabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBEndOfRouteCommentView) @_Concurrency.MainActor(unsafe) open class EndOfRouteCommentView : NbmapNavigation.StylableTextView {
+  @available(iOS 7.0, *)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect, textContainer: UIKit.NSTextContainer?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBEndOfRouteButton) @_Concurrency.MainActor(unsafe) open class EndOfRouteButton : NbmapNavigation.StylableButton {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension NbmapNavigation.NavMapCameraOption {
+  public static let followingMobileCamera: Swift.String
+  public static let overviewMobileCamera: Swift.String
+  public static let followingCarPlayCamera: Swift.String
+  public static let overviewCarPlayCamera: Swift.String
+}
+extension Foundation.NSNotification.Name {
+  public static let navigationCameraStateDidChange: Foundation.Notification.Name
+  public static let navigationCameraViewportDidChange: Foundation.Notification.Name
+}
+extension NbmapNavigation.NavigationCamera {
+  public struct NotificationUserInfoKey : Swift.Hashable, Swift.Equatable, Swift.RawRepresentable {
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String
+    public init(rawValue: Swift.String)
+    public static let state: NbmapNavigation.NavigationCamera.NotificationUserInfoKey
+    public static let cameraOptions: NbmapNavigation.NavigationCamera.NotificationUserInfoKey
+  }
+}
+extension Nbmap.NGLStyle {
+  @objc dynamic public class var navigationGuidanceDayStyleURL: Foundation.URL {
+    @objc get
+  }
+  @objc dynamic public class var navigationGuidanceNightStyleURL: Foundation.URL {
+    @objc get
+  }
+  @objc dynamic public class func navigationGuidanceDayStyleURL(version: Swift.Int) -> Foundation.URL
+  @objc dynamic public class func navigationGuidanceNightStyleURL(version: Swift.Int) -> Foundation.URL
+  @objc dynamic public class var navigationPreviewDayStyleURL: Foundation.URL {
+    @objc get
+  }
+  @objc dynamic public class var navigationPreviewNightStyleURL: Foundation.URL {
+    @objc get
+  }
+  @objc dynamic public class func navigationPreviewDayStyleURL(version: Swift.Int) -> Foundation.URL
+  @objc dynamic public class func navigationPreviewNightStyleURL(version: Swift.Int) -> Foundation.URL
+}
+public protocol BasicCameraAnimator {
+  func startAnimation(option: NbmapNavigation.NavMapCameraOption)
+  func stopAnimation()
+  func isRunning() -> Swift.Bool
+}
+extension CoreGraphics.CGPoint {
+  public func distance(to: CoreGraphics.CGPoint) -> CoreGraphics.CGFloat
+}
+public struct NavigationViewportDataSourceOptions : Swift.Equatable {
+  public var followingCameraOptions: NbmapNavigation.FollowingCameraOptions
+  public var overviewCameraOptions: NbmapNavigation.OverviewCameraOptions
+  public init()
+  public init(_ followingCameraOptions: NbmapNavigation.FollowingCameraOptions, overviewCameraOptions: NbmapNavigation.OverviewCameraOptions)
+  public static func == (lhs: NbmapNavigation.NavigationViewportDataSourceOptions, rhs: NbmapNavigation.NavigationViewportDataSourceOptions) -> Swift.Bool
+}
+@available(iOS 12.0, *)
+public enum CarPlayActivity : Swift.Int {
+  case browsing
+  case previewing
+  case navigating
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers @available(iOS 12.0, *)
+public class CarPlayManager : ObjectiveC.NSObject {
+  public var interfaceController: CarPlay.CPInterfaceController? {
+    get
+  }
+  public var carWindow: UIKit.UIWindow? {
+    get
+  }
+  weak public var delegate: NbmapNavigation.CarPlayManagerDelegate?
+  @objc public var simulatesLocations: Swift.Bool
+  public var simulatedSpeedMultiplier: Swift.Double
+  public var mainMapTemplate: CarPlay.CPMapTemplate? {
+    get
+  }
+  weak public var currentNavigator: NbmapNavigation.CarPlayNavigationViewController? {
+    get
+  }
+  public static let CarPlayWaypointKey: Swift.String
+  public static var isConnectedToCarPlay: Swift.Bool
+  public var currentActivity: NbmapNavigation.CarPlayActivity? {
+    get
+  }
+  public var dataTracking: NbmapCoreNavigation.DataTracking
+  public var styles: [NbmapNavigation.Style] {
+    get
+    set
+  }
+  public var navigationMapView: NbmapNavigation.NavigationMapView? {
+    get
+  }
+  public var customRoutingProvider: NbmapCoreNavigation.RoutingProvider?
+  public var routingProvider: NbmapCoreNavigation.RoutingProvider {
+    get
+    set
+  }
+  public var exitButton: CarPlay.CPBarButton {
+    get
+    set
+  }
+  public var muteButton: CarPlay.CPBarButton {
+    get
+    set
+  }
+  public var userTrackingButton: CarPlay.CPMapButton {
+    get
+    set
+  }
+  public static var shared: NbmapNavigation.CarPlayManager
+  @objc deinit
+}
+@available(iOS 13.0, *)
+extension NbmapNavigation.CarPlayManager : CarPlay.CPTemplateApplicationSceneDelegate {
+  @objc dynamic public func templateApplicationScene(_ templateApplicationScene: CarPlay.CPTemplateApplicationScene, didConnect interfaceController: CarPlay.CPInterfaceController, to window: CarPlay.CPWindow)
+  @objc dynamic public func templateApplicationScene(_ templateApplicationScene: CarPlay.CPTemplateApplicationScene, didDisconnect interfaceController: CarPlay.CPInterfaceController, from window: CarPlay.CPWindow)
+}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayManager : CarPlay.CPApplicationDelegate {
+  @objc dynamic public func application(_ application: UIKit.UIApplication, didConnectCarInterfaceController interfaceController: CarPlay.CPInterfaceController, to window: CarPlay.CPWindow)
+  @objc dynamic public func application(_ application: UIKit.UIApplication, didDisconnectCarInterfaceController interfaceController: CarPlay.CPInterfaceController, from window: CarPlay.CPWindow)
+}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayManager : CarPlay.CPInterfaceControllerDelegate {
+  @objc dynamic public func templateWillAppear(_ template: CarPlay.CPTemplate, animated: Swift.Bool)
+  @objc dynamic public func templateDidAppear(_ template: CarPlay.CPTemplate, animated: Swift.Bool)
+  @objc dynamic public func templateWillDisappear(_ template: CarPlay.CPTemplate, animated: Swift.Bool)
+  @objc dynamic public func templateDidDisappear(_ template: CarPlay.CPTemplate, animated: Swift.Bool)
+}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayManager : CarPlay.CPListTemplateDelegate {
+  @objc dynamic public func listTemplate(_ listTemplate: CarPlay.CPListTemplate, didSelect item: CarPlay.CPListItem, completionHandler: @escaping () -> Swift.Void)
+  public func calculateRouteAndStart(from fromWaypoint: NbmapDirections.Waypoint? = nil, to toWaypoint: NbmapDirections.Waypoint, completionHandler: @escaping () -> Swift.Void)
+}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayManager : CarPlay.CPMapTemplateDelegate {
+  @objc dynamic public func mapTemplate(_ mapTemplate: CarPlay.CPMapTemplate, startedTrip trip: CarPlay.CPTrip, using routeChoice: CarPlay.CPRouteChoice)
+  @objc dynamic public func mapTemplate(_ mapTemplate: CarPlay.CPMapTemplate, selectedPreviewFor trip: CarPlay.CPTrip, using routeChoice: CarPlay.CPRouteChoice)
+  @objc dynamic public func mapTemplateDidCancelNavigation(_ mapTemplate: CarPlay.CPMapTemplate)
+  @objc dynamic public func mapTemplateDidBeginPanGesture(_ mapTemplate: CarPlay.CPMapTemplate)
+  @objc dynamic public func mapTemplate(_ mapTemplate: CarPlay.CPMapTemplate, didEndPanGestureWithVelocity velocity: CoreGraphics.CGPoint)
+  @objc dynamic public func mapTemplateWillDismissPanningInterface(_ mapTemplate: CarPlay.CPMapTemplate)
+  @objc dynamic public func mapTemplate(_ mapTemplate: CarPlay.CPMapTemplate, didUpdatePanGestureWithTranslation translation: CoreGraphics.CGPoint, velocity: CoreGraphics.CGPoint)
+  @objc dynamic public func mapTemplate(_ mapTemplate: CarPlay.CPMapTemplate, panWith direction: CarPlay.CPMapTemplate.PanDirection)
+}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayManager : NbmapNavigation.CarPlayNavigationDelegate {
+  @objc dynamic public func carPlayNavigationViewControllerDidArrive(_: NbmapNavigation.CarPlayNavigationViewController)
+  @objc dynamic public func carPlayNavigationViewControllerDidDismiss(_ carPlayNavigationViewController: NbmapNavigation.CarPlayNavigationViewController, byCanceling canceled: Swift.Bool)
+}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayManager {
+  public static let currentActivityKey: Swift.String
+}
+public struct NavigationGeocodedPlacemark : Swift.Equatable, Swift.Codable {
+  public var title: Swift.String
+  public var subtitle: Swift.String?
+  public var location: CoreLocation.CLLocation?
+  public var routableLocations: [CoreLocation.CLLocation]?
+  public init(title: Swift.String, subtitle: Swift.String?, location: CoreLocation.CLLocation?, routableLocations: [CoreLocation.CLLocation]?)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (lhs: NbmapNavigation.NavigationGeocodedPlacemark, rhs: NbmapNavigation.NavigationGeocodedPlacemark) -> Swift.Bool
+  @available(iOS 12.0, *)
+  public func listItem() -> CarPlay.CPListItem
+}
+extension CoreLocation.CLLocation : Swift.Encodable {
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case latitude
+    case longitude
+    case altitude
+    case horizontalAccuracy
+    case verticalAccuracy
+    case speed
+    case course
+    case timestamp
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias RawValue = Swift.String
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@_inheritsConvenienceInitializers @IBDesignable @objc(NBManeuverView) @_Concurrency.MainActor(unsafe) open class ManeuverView : UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var primaryColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var secondaryColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var isStart: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var isEnd: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var visualInstruction: NbmapDirections.VisualInstruction? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) public var drivingSide: NbmapDirections.DrivingSide {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func draw(_ rect: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol CourseUpdatable : UIKit.UIView {
+  func update(location: CoreLocation.CLLocation, pitch: CoreGraphics.CGFloat, direction: CoreLocation.CLLocationDegrees, animated: Swift.Bool, navigationCameraState: NbmapNavigation.NavigationCameraState)
+  func update(from degress: CoreLocation.CLLocationDegrees, to direction: CoreLocation.CLLocationDegrees, pitch: CoreGraphics.CGFloat, animated: Swift.Bool, navigationCameraState: NbmapNavigation.NavigationCameraState)
+  func updateWayNameLabel(wayNameFeatures: [Nbmap.NGLFeature], cameraState: NbmapNavigation.NavigationCameraState)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class UserPuckCourseView : UIKit.UIView, NbmapNavigation.CourseUpdatable {
+  @_Concurrency.MainActor(unsafe) public func update(from direction: CoreLocation.CLLocationDegrees, to degress: CoreLocation.CLLocationDegrees, pitch: CoreGraphics.CGFloat, animated: Swift.Bool, navigationCameraState: NbmapNavigation.NavigationCameraState)
+  @_Concurrency.MainActor(unsafe) public var minimizesInOverview: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func update(location: CoreLocation.CLLocation, pitch: CoreGraphics.CGFloat, direction: CoreLocation.CLLocationDegrees, animated: Swift.Bool, navigationCameraState: NbmapNavigation.NavigationCameraState)
+  @_Concurrency.MainActor(unsafe) public func updateWayNameLabel(wayNameFeatures: [Nbmap.NGLFeature], cameraState: NbmapNavigation.NavigationCameraState)
+  @_Concurrency.MainActor(unsafe) public var puckView: UIKit.UIImageView! {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+extension NbmapNavigation.NavigationView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) open class InstructionsBannerView : NbmapNavigation.BaseInstructionsBannerView, NbmapNavigation.NavigationComponent {
+  @_Concurrency.MainActor(unsafe) weak public var navigationDataEventTracking: NbmapCoreNavigation.NavigationEventTracking?
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didPassVisualInstructionPoint instruction: NbmapDirections.VisualInstructionBanner, routeProgress: NbmapCoreNavigation.RouteProgress)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BaseInstructionsBannerView : UIKit.UIControl {
+  @_Concurrency.MainActor(unsafe) weak public var maneuverView: NbmapNavigation.ManeuverView!
+  @_Concurrency.MainActor(unsafe) weak public var primaryLabel: NbmapNavigation.PrimaryLabel!
+  @_Concurrency.MainActor(unsafe) weak public var secondaryLabel: NbmapNavigation.SecondaryLabel!
+  @_Concurrency.MainActor(unsafe) weak public var distanceLabel: NbmapNavigation.DistanceLabel!
+  @_Concurrency.MainActor(unsafe) weak public var dividerView: UIKit.UIView!
+  @_Concurrency.MainActor(unsafe) weak public var stepListIndicatorView: NbmapNavigation.StepListIndicatorView!
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var swipeable: Swift.Bool
+  @_Concurrency.MainActor(unsafe) weak public var delegate: NbmapNavigation.InstructionsBannerViewDelegate? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var distance: CoreLocation.CLLocationDistance? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func update(for instruction: NbmapDirections.VisualInstructionBanner?)
+  @objc override dynamic open func prepareForInterfaceBuilder()
+  @_Concurrency.MainActor(unsafe) public func updateDistance(for currentStepProgress: NbmapCoreNavigation.RouteStepProgress)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) public class StatusView : UIKit.UIControl {
+  public struct Status {
+    public var identifier: Swift.String
+    public let title: Swift.String
+    public var spinner: Swift.Bool
+    public let duration: Foundation.TimeInterval
+    public var animated: Swift.Bool
+    public var interactive: Swift.Bool
+    public var priority: NbmapNavigation.StatusView.Priority
+  }
+  public typealias Priority = Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func show(status: NbmapNavigation.StatusView.Status)
+  @_Concurrency.MainActor(unsafe) public func hide(with status: NbmapNavigation.StatusView.Status? = nil, delay: Foundation.TimeInterval = 0, animated: Swift.Bool = true)
+  @objc deinit
+}
+@objc(NBBannerContainerView) @_Concurrency.MainActor(unsafe) open class BannerContainerView : UIKit.UIView {
+  public enum `Type` {
+    case top
+    case bottom
+    public static func == (a: NbmapNavigation.BannerContainerView.`Type`, b: NbmapNavigation.BannerContainerView.`Type`) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum State {
+    case expanded
+    case collapsed
+    case hiden
+    public static func == (a: NbmapNavigation.BannerContainerView.State, b: NbmapNavigation.BannerContainerView.State) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func safeAreaInsetsDidChange()
+  @_Concurrency.MainActor(unsafe) public var state: NbmapNavigation.BannerContainerView.State {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) weak public var delegate: NbmapNavigation.BannerContainerViewDelegate? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public init(_ type: NbmapNavigation.BannerContainerView.`Type`, frame: CoreGraphics.CGRect = .zero)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func didMoveToSuperview()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  public typealias CompletionHandler = (_ completed: Swift.Bool) -> Swift.Void
+  @_Concurrency.MainActor(unsafe) public func show(animated: Swift.Bool = true, duration: Foundation.TimeInterval = 0.2, animations: (() -> Swift.Void)? = nil, completion: NbmapNavigation.BannerContainerView.CompletionHandler? = nil)
+  @_Concurrency.MainActor(unsafe) public func hide(animated: Swift.Bool = true, duration: Foundation.TimeInterval = 0.2, animations: (() -> Swift.Void)? = nil, completion: NbmapNavigation.BannerContainerView.CompletionHandler? = nil)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) open class BottomBannerViewController : UIKit.UIViewController, NbmapNavigation.NavigationComponent {
+  @_Concurrency.MainActor(unsafe) weak public var navigationDataEventTracking: NbmapCoreNavigation.NavigationEventTracking?
+  @_Concurrency.MainActor(unsafe) open var bottomPaddingView: NbmapNavigation.BottomPaddingView {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) open var bottomBannerView: NbmapNavigation.BottomBannerView {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) open var timeRemainingLabel: NbmapNavigation.TimeRemainingLabel!
+  @_Concurrency.MainActor(unsafe) open var distanceRemainingLabel: NbmapNavigation.DistanceRemainingLabel!
+  @_Concurrency.MainActor(unsafe) open var arrivalTimeLabel: NbmapNavigation.ArrivalTimeLabel!
+  @_Concurrency.MainActor(unsafe) open var cancelButton: NbmapNavigation.CancelButton!
+  @_Concurrency.MainActor(unsafe) open var overviewButton: NbmapNavigation.OverviewButton!
+  @_Concurrency.MainActor(unsafe) open var dotDividerView: NbmapNavigation.SeparatorView!
+  @_Concurrency.MainActor(unsafe) open var stepsContainer: NbmapNavigation.StepsInstructionView {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) weak open var delegate: NbmapNavigation.BottomBannerViewControllerDelegate?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @objc override dynamic open func prepareForInterfaceBuilder()
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, routeController: NbmapCoreNavigation.RouteController, didRerouteAlong route: NbmapDirections.Route)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didRefresh routeProgress: NbmapCoreNavigation.RouteProgress)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didUpdate progress: NbmapCoreNavigation.RouteProgress, with location: CoreLocation.CLLocation, rawLocation: CoreLocation.CLLocation)
+}
+extension NbmapNavigation.BottomBannerViewController : NbmapNavigation.StepsViewControllerDelegate {
+  @_Concurrency.MainActor(unsafe) public func stepsViewController(_ viewController: NbmapNavigation.StepsViewController, didSelect legIndex: Swift.Int, stepIndex: Swift.Int, cell: NbmapNavigation.StepTableViewCell)
+}
+extension NbmapDirections.VisualInstruction {
+  @available(iOS 12.0, *)
+  public func maneuverImageSet(side: NbmapDirections.DrivingSide) -> CarPlay.CPImageSet?
+  public func shouldFlipImage(side: NbmapDirections.DrivingSide) -> Swift.Bool
+  @available(iOS 12.0, *)
+  public func carPlayManeuverLabelAttributedText<T>(bounds: @escaping () -> (CoreGraphics.CGRect), shieldHeight: CoreGraphics.CGFloat, window: UIKit.UIWindow?, traitCollection: UIKit.UITraitCollection? = nil, instructionLabelType: T.Type? = nil) -> Foundation.NSAttributedString? where T : NbmapNavigation.InstructionLabel
+  @available(iOS 12.0, *)
+  public func lanesImageSet(side: NbmapDirections.DrivingSide, direction: NbmapDirections.ManeuverDirection?, scale: CoreGraphics.CGFloat) -> CarPlay.CPImageSet?
+}
+public enum NavigationCameraType {
+  case carPlay
+  case mobile
+  public static func == (a: NbmapNavigation.NavigationCameraType, b: NbmapNavigation.NavigationCameraType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class LanesStyleKit : ObjectiveC.NSObject {
+  @objc dynamic public class func drawLaneSharpTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraight(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawLaneUturn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneSlightTurnUsingSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneTurnUsingTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightUsingStraight(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32))
+  @objc dynamic public class func drawLaneUturnUsingUturn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneSharpTurnUsingSharpTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneSlightTurnOrSharpTurnUsingSharpTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneTurnOrSharpTurnUsingTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneSlightTurnOrUturnUsingUturn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneSlightTurnOrTurnUsingSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrUturnUsingUturn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneTurnOrUturnUsingTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneTurnOrUturnUsingUturn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneTurnOrSharpTurnUsingSharpTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrSharpTurnUsingSharpTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeTurnOrTurnUsingTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneSlightTurnOrSharpTurnUsingSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrUturnUsingStraight(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrSlightTurnUsingSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeSlightTurnOrSlightTurnUsingSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrTurnUsingStraight(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneSlightTurnOrUturnUsingSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrSlightTurnUsingStraight(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrSharpTurnUsingStraight(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrTurnUsingTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneSlightTurnOrTurnUsingTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeTurnOrSlightTurnUsingSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeSlightTurnOrTurnUsingTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrUturn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrSharpTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneSlightTurnOrTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneSlightTurnOrSharpTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneSlightTurnOrUturn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneTurnOrSharpTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneTurnOrUturn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeTurnOrSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeTurnOrTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeSlightTurnOrSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeSlightTurnOrTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeTurnOrStraightOrTurnUsingTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeTurnOrStraightOrTurnUsingStraight(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrTurnOrUturnUsingStraight(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrTurnOrUturnUsingTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrTurnOrUturnUsingUturn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrSlightTurnOrTurnUsingStraight(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrSlightTurnOrTurnUsingSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrSlightTurnOrTurnUsingTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeTurnOrStraightOrSlightTurnUsingStraight(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeTurnOrStraightOrSlightTurnUsingSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeSlightTurnOrStraightOrTurnUsingTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeSlightTurnOrStraightOrTurnUsingStraight(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeSlightTurnOrStraightOrSlightTurnUsingStraight(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeSlightTurnOrStraightOrSlightTurnUsingSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, primaryColor: UIKit.UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000), secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeSlightTurnOrStraightOrSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeTurnOrStraightOrSlightTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeTurnOrStraightOrTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneOppositeSlightTurnOrStraightOrTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrTurnOrUturn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc dynamic public class func drawLaneStraightOrSlightTurnOrTurn(frame targetFrame: CoreGraphics.CGRect = CGRect(x: 0, y: 0, width: 30, height: 30), resizing: NbmapNavigation.LanesStyleKit.ResizingBehavior = .aspectFit, secondaryColor: UIKit.UIColor = UIColor(red: 0.618, green: 0.618, blue: 0.618, alpha: 1.000), size: CoreGraphics.CGSize = CGSize(width: 32, height: 32), flipHorizontally: Swift.Bool = false)
+  @objc(LanesStyleKitResizingBehavior) public enum ResizingBehavior : Swift.Int {
+    case aspectFit
+    case aspectFill
+    case stretch
+    case center
+    public func apply(rect: CoreGraphics.CGRect, target: CoreGraphics.CGRect) -> CoreGraphics.CGRect
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class NbmapVoiceTextConverter {
+  public static func convertorText(text: Swift.String) -> Swift.String
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @IBDesignable @objc(NBDashedLineView) @_Concurrency.MainActor(unsafe) public class DashedLineView : NbmapNavigation.LineView {
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var dashedLength: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var dashedGap: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public struct FollowingCameraOptions : Swift.Equatable {
+  public var defaultPitch: Swift.Double {
+    get
+    set
+  }
+  public var defaultDistence: Swift.Double {
+    get
+    set
+  }
+  public var zoomRange: Swift.ClosedRange<Swift.Double> {
+    get
+    set
+  }
+  public var centerUpdatesAllowed: Swift.Bool
+  public var zoomUpdatesAllowed: Swift.Bool
+  public var bearingUpdatesAllowed: Swift.Bool
+  public var pitchUpdatesAllowed: Swift.Bool
+  public var paddingUpdatesAllowed: Swift.Bool
+  public var distanceUpdateAllowed: Swift.Bool
+  public var intersectionDensity: NbmapNavigation.IntersectionDensity
+  public var bearingSmoothing: NbmapNavigation.BearingSmoothing
+  public var geometryFramingAfterManeuver: NbmapNavigation.GeometryFramingAfterManeuver
+  public var pitchNearManeuver: NbmapNavigation.PitchNearManeuver
+  public var defaultPitchСoefficientForCarplay: Swift.Double
+  public init()
+  public static func == (lhs: NbmapNavigation.FollowingCameraOptions, rhs: NbmapNavigation.FollowingCameraOptions) -> Swift.Bool
+}
+public struct IntersectionDensity : Swift.Equatable {
+  public var enabled: Swift.Bool
+  public var averageDistanceMultiplier: Swift.Double
+  public var minimumDistanceBetweenIntersections: Swift.Double
+  public init()
+  public static func == (lhs: NbmapNavigation.IntersectionDensity, rhs: NbmapNavigation.IntersectionDensity) -> Swift.Bool
+}
+public struct BearingSmoothing : Swift.Equatable {
+  public var enabled: Swift.Bool
+  public var maximumBearingSmoothingAngle: Swift.Double
+  public init()
+  public static func == (lhs: NbmapNavigation.BearingSmoothing, rhs: NbmapNavigation.BearingSmoothing) -> Swift.Bool
+}
+public struct GeometryFramingAfterManeuver : Swift.Equatable {
+  public var enabled: Swift.Bool
+  public var distanceToCoalesceCompoundManeuvers: Swift.Double
+  public var distanceToFrameAfterManeuver: Swift.Double
+  public init()
+  public static func == (lhs: NbmapNavigation.GeometryFramingAfterManeuver, rhs: NbmapNavigation.GeometryFramingAfterManeuver) -> Swift.Bool
+}
+public struct PitchNearManeuver : Swift.Equatable {
+  public var enabled: Swift.Bool
+  public var triggerDistanceToManeuver: Swift.Double
+  public init()
+  public static func == (lhs: NbmapNavigation.PitchNearManeuver, rhs: NbmapNavigation.PitchNearManeuver) -> Swift.Bool
+}
+extension UIKit.UIImage {
+  public func roundedWithBorder(width: CoreGraphics.CGFloat, color: UIKit.UIColor) -> UIKit.UIImage?
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class LaneView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var intrinsicContentSize: CoreGraphics.CGSize {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var primaryColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var secondaryColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var primaryColorHighlighted: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var secondaryColorHighlighted: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public var showHighlightedColors: Swift.Bool {
+    get
+    set
+  }
+  @objc @_Concurrency.MainActor(unsafe) required dynamic public init?(coder decoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func draw(_ rect: CoreGraphics.CGRect)
+  @objc deinit
+}
+public enum NavigationCameraState {
+  case idle
+  case transitionToFollowing
+  case following
+  case transitionToOverview
+  case overview
+  public static func == (a: NbmapNavigation.NavigationCameraState, b: NbmapNavigation.NavigationCameraState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Nbmap.NGLAccountManager {
+  @objc dynamic public class var hasChinaBaseURL: Swift.Bool {
+    @objc get
+  }
+}
+public protocol NavigationCameraDelegate {
+  func navigationCameraStateDidChange(state: NbmapNavigation.NavigationCameraState)
+}
+@objc public class NavigationCamera : ObjectiveC.NSObject, NbmapNavigation.ViewportDataSourceDelegate {
+  public var delegate: NbmapNavigation.NavigationCameraDelegate?
+  required public init(_ mapView: NbmapNavigation.NavigationMapView, navigationCameraType: NbmapNavigation.NavigationCameraType = .mobile)
+  public func viewportDataSource(_ dataSource: NbmapNavigation.ViewportDataSource, didUpdate cameraOptions: [Swift.String : NbmapNavigation.NavMapCameraOption])
+  public var viewportDataSource: NbmapNavigation.ViewportDataSource {
+    get
+    set
+  }
+  public var state: NbmapNavigation.NavigationCameraState {
+    get
+  }
+  public var cameraStateTransition: NbmapNavigation.CameraStateTransition
+  public func follow(_ completion: (() -> Swift.Void)? = nil)
+  public func moveToOverview(_ completion: (() -> Swift.Void)? = nil)
+  @objc public func stop()
+  @objc deinit
+}
+public protocol NavigationViewControllerDelegate : NbmapNavigation.VisualInstructionDelegate {
+  func navigationViewControllerDidDismiss(_ navigationViewController: NbmapNavigation.NavigationViewController, byCanceling canceled: Swift.Bool)
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didArriveAt waypoint: NbmapDirections.Waypoint) -> Swift.Bool
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didUpdate progress: NbmapCoreNavigation.RouteProgress, with location: CoreLocation.CLLocation, rawLocation: CoreLocation.CLLocation)
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, shouldRerouteFrom location: CoreLocation.CLLocation) -> Swift.Bool
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didRefresh routeProgress: NbmapCoreNavigation.RouteProgress)
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, willRerouteFrom location: CoreLocation.CLLocation)
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didRerouteAlong route: NbmapDirections.Route)
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didFailToRerouteWith error: Swift.Error)
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, routeStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, routeCasingStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, shapeFor routes: [NbmapDirections.Route]) -> Nbmap.NGLShape?
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, simplifiedShapeFor route: NbmapDirections.Route) -> Nbmap.NGLShape?
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, waypointStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, waypointSymbolStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, shapeFor waypoints: [NbmapDirections.Waypoint], legIndex: Swift.Int) -> Nbmap.NGLShape?
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didSelect route: NbmapDirections.Route)
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, imageFor annotation: Nbmap.NGLAnnotation) -> Nbmap.NGLAnnotationImage?
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, viewFor annotation: Nbmap.NGLAnnotation) -> Nbmap.NGLAnnotationView?
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, mapViewUserAnchorPoint mapView: NbmapNavigation.NavigationMapView) -> CoreGraphics.CGPoint
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, shouldDiscard location: CoreLocation.CLLocation) -> Swift.Bool
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, roadNameAt location: CoreLocation.CLLocation) -> Swift.String?
+  func navigationMapViewUserAnchorPoint(_ navigationViewController: NbmapNavigation.NavigationViewController) -> CoreGraphics.CGPoint
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didFailToUpdateAlternatives error: NbmapCoreNavigation.AlternativeRouteError)
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, willTakeAlternativeRoute route: NbmapDirections.Route, at location: CoreLocation.CLLocation?)
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didTakeAlternativeRouteAt location: CoreLocation.CLLocation?)
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didFailToTakeAlternativeRouteAt location: CoreLocation.CLLocation?)
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didSubmitArrivalFeedback feedback: NbmapCoreNavigation.EndOfRouteFeedback)
+  func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, shouldPreventReroutesWhenArrivingAt waypoint: NbmapDirections.Waypoint) -> Swift.Bool
+}
+extension NbmapNavigation.NavigationViewControllerDelegate {
+  public func navigationViewControllerDidDismiss(_ navigationViewController: NbmapNavigation.NavigationViewController, byCanceling canceled: Swift.Bool)
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didArriveAt waypoint: NbmapDirections.Waypoint) -> Swift.Bool
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didUpdate progress: NbmapCoreNavigation.RouteProgress, with location: CoreLocation.CLLocation, rawLocation: CoreLocation.CLLocation)
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, shouldRerouteFrom location: CoreLocation.CLLocation) -> Swift.Bool
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didRefresh routeProgress: NbmapCoreNavigation.RouteProgress)
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, willRerouteFrom location: CoreLocation.CLLocation)
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didRerouteAlong route: NbmapDirections.Route)
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didFailToRerouteWith error: Swift.Error)
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didSelect route: NbmapDirections.Route)
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, routeStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, routeCasingStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, shapeFor routes: [NbmapDirections.Route]) -> Nbmap.NGLShape?
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, simplifiedShapeFor route: NbmapDirections.Route) -> Nbmap.NGLShape?
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, waypointStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, waypointSymbolStyleLayerWithIdentifier identifier: Swift.String, source: Nbmap.NGLSource) -> Nbmap.NGLStyleLayer?
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, shapeFor waypoints: [NbmapDirections.Waypoint], legIndex: Swift.Int) -> Nbmap.NGLShape?
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, imageFor annotation: Nbmap.NGLAnnotation) -> Nbmap.NGLAnnotationImage?
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, viewFor annotation: Nbmap.NGLAnnotation) -> Nbmap.NGLAnnotationView?
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, mapViewUserAnchorPoint mapView: NbmapNavigation.NavigationMapView) -> CoreGraphics.CGPoint
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, roadNameAt location: CoreLocation.CLLocation) -> Swift.String?
+  public func navigationMapViewUserAnchorPoint(_ navigationViewController: NbmapNavigation.NavigationViewController) -> CoreGraphics.CGPoint
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, shouldDiscard location: CoreLocation.CLLocation) -> Swift.Bool
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didFailToUpdateAlternatives error: NbmapCoreNavigation.AlternativeRouteError)
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, willTakeAlternativeRoute route: NbmapDirections.Route, at location: CoreLocation.CLLocation?)
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didTakeAlternativeRouteAt location: CoreLocation.CLLocation?)
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didFailToTakeAlternativeRouteAt location: CoreLocation.CLLocation?)
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, didSubmitArrivalFeedback feedback: NbmapCoreNavigation.EndOfRouteFeedback)
+  public func navigationViewController(_ navigationViewController: NbmapNavigation.NavigationViewController, shouldPreventReroutesWhenArrivingAt waypoint: NbmapDirections.Waypoint) -> Swift.Bool
+}
+public enum DissolvedRouteLineStyle : Swift.Int {
+  case DISSOLVED_TYPE_COLOR
+  case DISSOLVED_TYPE_TRANSPARENT
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(NBTopBannerView) @_Concurrency.MainActor(unsafe) open class TopBannerView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBBottomBannerView) @_Concurrency.MainActor(unsafe) open class BottomBannerView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BottomPaddingView : NbmapNavigation.BottomBannerView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBStepsInstructionView) @_Concurrency.MainActor(unsafe) open class StepsInstructionView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension UIKit.UIFont {
+  @objc dynamic public var adjustedFont: UIKit.UIFont {
+    @objc get
+  }
+}
+public protocol CameraStateTransition : AnyObject {
+  var mapView: Nbmap.NGLMapView? { get }
+  init(_ mapView: Nbmap.NGLMapView)
+  func transitionToFollowing(_ cameraOptions: NbmapNavigation.NavMapCameraOption, completion: @escaping (() -> Swift.Void))
+  func transitionToOverview(_ cameraOptions: NbmapNavigation.NavMapCameraOption, completion: @escaping (() -> Swift.Void))
+  func update(to cameraOptions: NbmapNavigation.NavMapCameraOption, state: NbmapNavigation.NavigationCameraState)
+  func cancelPendingTransition()
+}
+public enum MapOrnamentPosition {
+  case topLeading
+  case topTrailing
+  public static func == (a: NbmapNavigation.MapOrnamentPosition, b: NbmapNavigation.MapOrnamentPosition) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension CoreGraphics.CGSize : Swift.ExpressibleByFloatLiteral {
+  public typealias FloatLiteralType = Swift.Double
+  public init(size: Swift.Double)
+  public init(floatLiteral value: CoreGraphics.CGSize.FloatLiteralType)
+}
+@objc(NBFeedbackItem) public class FeedbackItem : ObjectiveC.NSObject {
+  @objc public var title: Swift.String
+  @objc public var image: UIKit.UIImage
+  @objc public var feedbackType: NbmapCoreNavigation.FeedbackType
+  @objc public init(title: Swift.String, image: UIKit.UIImage, feedbackType: NbmapCoreNavigation.FeedbackType)
+  @objc deinit
+}
+public enum ViewportDataSourceType {
+  case raw
+  case passive
+  case active
+  public static func == (a: NbmapNavigation.ViewportDataSourceType, b: NbmapNavigation.ViewportDataSourceType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension NbmapNavigation.FeedbackViewController : UIKit.UIViewControllerTransitioningDelegate {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func animationController(forDismissed dismissed: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func animationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController, source: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func interactionControllerForDismissal(using animator: UIKit.UIViewControllerAnimatedTransitioning) -> UIKit.UIViewControllerInteractiveTransitioning?
+}
+@objc public protocol FeedbackViewControllerDelegate {
+  @objc optional func feedbackViewControllerDidOpen(_ feedbackViewController: NbmapNavigation.FeedbackViewController)
+  @objc(feedbackViewController:didSendFeedbackItem:UUID:) optional func feedbackViewController(_ feedbackViewController: NbmapNavigation.FeedbackViewController, didSend feedbackItem: NbmapNavigation.FeedbackItem, uuid: Foundation.UUID)
+  @objc optional func feedbackViewControllerDidCancel(_ feedbackViewController: NbmapNavigation.FeedbackViewController)
+}
+@objc(NBFeedbackViewController) @_Concurrency.MainActor(unsafe) public class FeedbackViewController : UIKit.UIViewController, UIKit.UIGestureRecognizerDelegate {
+  @_Concurrency.MainActor(unsafe) public var sections: [NbmapNavigation.FeedbackItem]
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: NbmapNavigation.FeedbackViewControllerDelegate?
+  @_Concurrency.MainActor(unsafe) public var dataTracking: NbmapCoreNavigation.DataTracking?
+  @objc @_Concurrency.MainActor(unsafe) public init(dataTracking: NbmapCoreNavigation.DataTracking?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func encode(with aCoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func willTransition(to newCollection: UIKit.UITraitCollection, with coordinator: UIKit.UIViewControllerTransitionCoordinator)
+  @objc @_Concurrency.MainActor(unsafe) public func dismissFeedback()
+  @_Concurrency.MainActor(unsafe) @objc public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldReceive touch: UIKit.UITouch) -> Swift.Bool
+  @objc deinit
+}
+extension NbmapNavigation.FeedbackViewController : UIKit.UICollectionViewDataSource {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+}
+extension NbmapNavigation.FeedbackViewController : UIKit.UICollectionViewDelegate {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+}
+extension NbmapNavigation.FeedbackViewController : UIKit.UICollectionViewDelegateFlowLayout {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGSize
+}
+open class NavMapCameraOption {
+  public init()
+  required public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc(NBStyleManagerDelegate) public protocol StyleManagerDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func locationFor(styleManager: NbmapNavigation.StyleManager) -> CoreLocation.CLLocation?
+  @objc optional func styleManager(_ styleManager: NbmapNavigation.StyleManager, didApply style: NbmapNavigation.Style)
+  @objc optional func styleManagerDidRefreshAppearance(_ styleManager: NbmapNavigation.StyleManager)
+}
+@objc(NBStyleManager) open class StyleManager : ObjectiveC.NSObject {
+  @objc weak public var delegate: NbmapNavigation.StyleManagerDelegate?
+  @objc public var automaticallyAdjustsStyleForTimeOfDay: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  public var currentStyle: NbmapNavigation.Style? {
+    get
+  }
+  @objc public var styles: [NbmapNavigation.Style] {
+    @objc get
+    @objc set
+  }
+  required public init(_ delegate: NbmapNavigation.StyleManagerDelegate)
+  @objc deinit
+  public func applyStyle(type styleType: NbmapNavigation.StyleType)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class NextInstructionLabel : NbmapNavigation.InstructionLabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @IBDesignable @_Concurrency.MainActor(unsafe) open class NextBannerView : UIKit.UIView, NbmapNavigation.NavigationComponent {
+  @_Concurrency.MainActor(unsafe) public var isCurrentlyVisible: Swift.Bool
+  @_Concurrency.MainActor(unsafe) weak public var navigationDataEventTracking: NbmapCoreNavigation.NavigationEventTracking?
+  public typealias CompletionHandler = (_ completed: Swift.Bool) -> Swift.Void
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func prepareForInterfaceBuilder()
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didPassVisualInstructionPoint instruction: NbmapDirections.VisualInstructionBanner, routeProgress: NbmapCoreNavigation.RouteProgress)
+  @_Concurrency.MainActor(unsafe) public func update(for visualInstruction: NbmapDirections.VisualInstructionBanner?, animated: Swift.Bool = true, duration: Foundation.TimeInterval = 0.5, completion: NbmapNavigation.NextBannerView.CompletionHandler? = nil)
+  @_Concurrency.MainActor(unsafe) public func show(animated: Swift.Bool = true, duration: Foundation.TimeInterval = 0.5, completion: NbmapNavigation.NextBannerView.CompletionHandler? = nil)
+  @_Concurrency.MainActor(unsafe) public func hide(animated: Swift.Bool = true, duration: Foundation.TimeInterval = 0.5, completion: NbmapNavigation.NextBannerView.CompletionHandler? = nil)
+  @objc deinit
+}
+public class NavigationViewportDataSource : NbmapNavigation.ViewportDataSource {
+  weak public var delegate: NbmapNavigation.ViewportDataSourceDelegate?
+  public var followingMobileCamera: NbmapNavigation.NavMapCameraOption
+  public var followingCarPlayCamera: NbmapNavigation.NavMapCameraOption
+  public var overviewMobileCamera: NbmapNavigation.NavMapCameraOption
+  public var overviewCarPlayCamera: NbmapNavigation.NavMapCameraOption
+  public var options: NbmapNavigation.NavigationViewportDataSourceOptions
+  required public init(_ mapView: NbmapNavigation.NavigationMapView, viewportDataSourceType: NbmapNavigation.ViewportDataSourceType = .active, navigationEnginConfig: NbmapCoreNavigation.NavigationEngineConfig = NavigationEngineConfig())
+  @objc deinit
+}
+extension NbmapNavigation.NavigationViewportDataSource : NbmapNavigation.LocationConsumer {
+  public func locationUpdate(to location: CoreLocation.CLLocationCoordinate2D)
+  public func locationConsumerId() -> Swift.String
+}
+@objc(NBStyleType) public enum StyleType : Swift.Int, Swift.CustomStringConvertible {
+  case day
+  case night
+  public init?(description: Swift.String)
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension UIKit.UIDevice {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var isPluggedIn: Swift.Bool {
+    @objc get
+  }
+}
+extension NbmapNavigation.BottomBannerViewController {
+  @_Concurrency.MainActor(unsafe) open func reinstallConstraints()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+}
+@_hasMissingDesignatedInitializers public class LocationSubject {
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBDataCache) public class DataCache : ObjectiveC.NSObject, NbmapNavigation.BimodalDataCache {
+  @objc override dynamic public init()
+  @objc public func store(_ data: Foundation.Data, forKey key: Swift.String, toDisk: Swift.Bool, completion: NbmapNavigation.CompletionHandler?)
+  @objc public func data(forKey key: Swift.String?) -> Foundation.Data?
+  @objc public func clearMemory()
+  @objc public func clearDisk(completion: NbmapNavigation.CompletionHandler?)
+  @objc deinit
+}
+public protocol TopBannerViewControllerDelegate : NbmapNavigation.VisualInstructionDelegate {
+  func topBanner(_ banner: NbmapNavigation.TopBannerViewController, didSwipeInDirection direction: UIKit.UISwipeGestureRecognizer.Direction)
+}
+extension NbmapNavigation.TopBannerViewControllerDelegate {
+  public func topBanner(_ banner: NbmapNavigation.TopBannerViewController, didSwipeInDirection direction: UIKit.UISwipeGestureRecognizer.Direction)
+}
+@available(iOS 12.0, *)
+public protocol CarPlayManagerDelegate : AnyObject {
+  func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, leadingNavigationBarButtonsCompatibleWith traitCollection: UIKit.UITraitCollection, in template: CarPlay.CPTemplate, for activity: NbmapNavigation.CarPlayActivity) -> [CarPlay.CPBarButton]?
+  func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, trailingNavigationBarButtonsCompatibleWith traitCollection: UIKit.UITraitCollection, in template: CarPlay.CPTemplate, for activity: NbmapNavigation.CarPlayActivity) -> [CarPlay.CPBarButton]?
+  func carPlayManager(_ carplayManager: NbmapNavigation.CarPlayManager, mapButtonsCompatibleWith traitCollection: UIKit.UITraitCollection, in template: CarPlay.CPTemplate, for activity: NbmapNavigation.CarPlayActivity) -> [CarPlay.CPMapButton]?
+  func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, searchTemplate: CarPlay.CPSearchTemplate, updatedSearchText searchText: Swift.String, completionHandler: @escaping ([CarPlay.CPListItem]) -> Swift.Void)
+  func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, searchTemplate: CarPlay.CPSearchTemplate, selectedResult item: CarPlay.CPListItem, completionHandler: @escaping () -> Swift.Void)
+  func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, didBeginNavigationWith navigationService: NbmapCoreNavigation.NavigationService)
+  func carPlayManagerDidEndNavigation(_ carPlayManager: NbmapNavigation.CarPlayManager)
+  func carplayManagerShouldDisableIdleTimer(_ carPlayManager: NbmapNavigation.CarPlayManager) -> Swift.Bool
+  func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, navigationServiceFor routes: [NbmapDirections.Route], routeIndex: Swift.Int, routeOptions: NbmapDirections.RouteOptions, desiredSimulationMode: NbmapCoreNavigation.SimulationMode) -> NbmapCoreNavigation.NavigationService?
+  func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, templateWillAppear template: CarPlay.CPTemplate, animated: Swift.Bool)
+  func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, templateDidAppear template: CarPlay.CPTemplate, animated: Swift.Bool)
+  func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, templateWillDisappear template: CarPlay.CPTemplate, animated: Swift.Bool)
+  func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, templateDidDisappear template: CarPlay.CPTemplate, animated: Swift.Bool)
+}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayManagerDelegate {
+  public func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, leadingNavigationBarButtonsCompatibleWith traitCollection: UIKit.UITraitCollection, in template: CarPlay.CPTemplate, for activity: NbmapNavigation.CarPlayActivity) -> [CarPlay.CPBarButton]?
+  public func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, trailingNavigationBarButtonsCompatibleWith traitCollection: UIKit.UITraitCollection, in template: CarPlay.CPTemplate, for activity: NbmapNavigation.CarPlayActivity) -> [CarPlay.CPBarButton]?
+  public func carPlayManager(_ carplayManager: NbmapNavigation.CarPlayManager, mapButtonsCompatibleWith traitCollection: UIKit.UITraitCollection, in template: CarPlay.CPTemplate, for activity: NbmapNavigation.CarPlayActivity) -> [CarPlay.CPMapButton]?
+  public func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, searchTemplate: CarPlay.CPSearchTemplate, updatedSearchText searchText: Swift.String, completionHandler: @escaping ([CarPlay.CPListItem]) -> Swift.Void)
+  public func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, searchTemplate: CarPlay.CPSearchTemplate, selectedResult item: CarPlay.CPListItem, completionHandler: @escaping () -> Swift.Void)
+  public func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, didBeginNavigationWith navigationService: NbmapCoreNavigation.NavigationService)
+  public func carPlayManagerDidEndNavigation(_ carPlayManager: NbmapNavigation.CarPlayManager)
+  public func carplayManagerShouldDisableIdleTimer(_ carPlayManager: NbmapNavigation.CarPlayManager) -> Swift.Bool
+  public func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, navigationServiceFor routes: [NbmapDirections.Route], routeIndex: Swift.Int, routeOptions: NbmapDirections.RouteOptions, desiredSimulationMode: NbmapCoreNavigation.SimulationMode) -> NbmapCoreNavigation.NavigationService?
+  public func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, templateWillAppear template: CarPlay.CPTemplate, animated: Swift.Bool)
+  public func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, templateDidAppear template: CarPlay.CPTemplate, animated: Swift.Bool)
+  public func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, templateWillDisappear template: CarPlay.CPTemplate, animated: Swift.Bool)
+  public func carPlayManager(_ carPlayManager: NbmapNavigation.CarPlayManager, templateDidDisappear template: CarPlay.CPTemplate, animated: Swift.Bool)
+}
+@objc @_inheritsConvenienceInitializers open class NBGeocoder : ObjectiveC.NSObject {
+  public static let shared: NbmapNavigation.NBGeocoder
+  @discardableResult
+  open func search(query: Swift.String, at: Swift.String? = nil, limit: Swift.String? = nil, completionHandler: @escaping (_ searchItems: [NbmapNavigation.NavigationGeocodedPlacemark]?, _ error: Foundation.NSError?) -> Swift.Void) -> Foundation.URLSessionDataTask
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ReroutingCheckUtils {
+  public static func checkLocationFarawayFomRoute(coordinate: CoreLocation.CLLocationCoordinate2D, visiblePolylines: [Turf.Polyline], routeCoordinates: [CoreLocation.CLLocationCoordinate2D]) -> Swift.Bool
+  @objc deinit
+}
+public typealias UserCourseView = UIKit.UIView & NbmapNavigation.CourseUpdatable
+public enum UserLocationStyle {
+  case courseView(_: NbmapNavigation.UserCourseView = UserPuckCourseView(frame: CGRect(origin: .zero, size: 75.0)))
+  case puck2D
+}
+public struct Solar {
+  public let coordinate: CoreLocation.CLLocationCoordinate2D
+  public var date: Foundation.Date {
+    get
+  }
+  public var sunrise: Foundation.Date? {
+    get
+  }
+  public var sunset: Foundation.Date? {
+    get
+  }
+  public var civilSunrise: Foundation.Date? {
+    get
+  }
+  public var civilSunset: Foundation.Date? {
+    get
+  }
+  public var nauticalSunrise: Foundation.Date? {
+    get
+  }
+  public var nauticalSunset: Foundation.Date? {
+    get
+  }
+  public var astronomicalSunrise: Foundation.Date? {
+    get
+  }
+  public var astronomicalSunset: Foundation.Date? {
+    get
+  }
+  public init?(for date: Foundation.Date = Date(), coordinate: CoreLocation.CLLocationCoordinate2D)
+  public mutating func calculate()
+}
+extension NbmapNavigation.Solar {
+  public var isDaytime: Swift.Bool {
+    get
+  }
+  public var isNighttime: Swift.Bool {
+    get
+  }
+}
+public protocol ViewportDataSource : AnyObject {
+  var delegate: NbmapNavigation.ViewportDataSourceDelegate? { get set }
+  var followingMobileCamera: NbmapNavigation.NavMapCameraOption { get }
+  var followingCarPlayCamera: NbmapNavigation.NavMapCameraOption { get }
+  var overviewMobileCamera: NbmapNavigation.NavMapCameraOption { get }
+  var overviewCarPlayCamera: NbmapNavigation.NavMapCameraOption { get }
+}
+public protocol ViewportDataSourceDelegate : AnyObject {
+  func viewportDataSource(_ dataSource: NbmapNavigation.ViewportDataSource, didUpdate cameraOptions: [Swift.String : NbmapNavigation.NavMapCameraOption])
+}
+@_inheritsConvenienceInitializers @objc(NBStyle) open class Style : ObjectiveC.NSObject {
+  @objc public var tintColor: UIKit.UIColor?
+  public var statusBarStyle: UIKit.UIStatusBarStyle?
+  @objc public var fontFamily: Swift.String?
+  @objc public var styleType: NbmapNavigation.StyleType
+  @objc open var mapStyleURL: Foundation.URL
+  @objc open var previewMapStyleURL: Foundation.URL
+  @objc open func apply()
+  @objc required override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBButton) @_Concurrency.MainActor(unsafe) open class Button : NbmapNavigation.StylableButton {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBCancelButton) @_Concurrency.MainActor(unsafe) open class CancelButton : NbmapNavigation.Button {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBOverviewButton) @_Concurrency.MainActor(unsafe) open class OverviewButton : NbmapNavigation.FloatingButton {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBDismissButton) @_Concurrency.MainActor(unsafe) open class DismissButton : NbmapNavigation.Button {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBFloatingButton) @_Concurrency.MainActor(unsafe) open class FloatingButton : NbmapNavigation.Button {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBReportButton) @_Concurrency.MainActor(unsafe) public class ReportButton : NbmapNavigation.Button {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBHighlightedButton) @_Concurrency.MainActor(unsafe) public class HighlightedButton : NbmapNavigation.Button {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @IBDesignable @objc(NBResumeButton) @_Concurrency.MainActor(unsafe) public class ResumeButton : UIKit.UIControl {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var tintColor: UIKit.UIColor! {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public func prepareForInterfaceBuilder()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBDraggableView) @_Concurrency.MainActor(unsafe) open class StepListIndicatorView : UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var gradientColors: [UIKit.UIColor] {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBStylableLabel) @_Concurrency.MainActor(unsafe) open class StylableLabel : UIKit.UILabel {
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var normalTextColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var normalFont: UIKit.UIFont {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBStylableView) @_Concurrency.MainActor(unsafe) open class StylableView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBStylableTextView) @_Concurrency.MainActor(unsafe) open class StylableTextView : UIKit.UITextView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var normalTextColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @available(iOS 7.0, *)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect, textContainer: UIKit.NSTextContainer?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBDistanceLabel) @_Concurrency.MainActor(unsafe) open class DistanceLabel : NbmapNavigation.StylableLabel {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var valueTextColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var unitTextColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var valueFont: UIKit.UIFont {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var unitFont: UIKit.UIFont {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBPrimaryLabel) @_Concurrency.MainActor(unsafe) open class PrimaryLabel : NbmapNavigation.InstructionLabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBSecondaryLabel) @_Concurrency.MainActor(unsafe) open class SecondaryLabel : NbmapNavigation.InstructionLabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBTimeRemainingLabel) @_Concurrency.MainActor(unsafe) open class TimeRemainingLabel : NbmapNavigation.StylableLabel {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var trafficUnknownColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var trafficLowColor: UIKit.UIColor
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var trafficModerateColor: UIKit.UIColor
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var trafficHeavyColor: UIKit.UIColor
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var trafficSevereColor: UIKit.UIColor
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBDistanceRemainingLabel) @_Concurrency.MainActor(unsafe) open class DistanceRemainingLabel : NbmapNavigation.StylableLabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBArrivalTimeLabel) @_Concurrency.MainActor(unsafe) open class ArrivalTimeLabel : NbmapNavigation.StylableLabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBTitleLabel) @_Concurrency.MainActor(unsafe) open class TitleLabel : NbmapNavigation.StylableLabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBSubtitleLabel) @_Concurrency.MainActor(unsafe) open class SubtitleLabel : NbmapNavigation.StylableLabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBWayNameView) @_Concurrency.MainActor(unsafe) open class WayNameView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var layer: QuartzCore.CALayer {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic override public var backgroundColor: UIKit.UIColor? {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var borderColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var borderWidth: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var cornerRadius: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder decoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBWayNameLabel) @_Concurrency.MainActor(unsafe) open class WayNameLabel : NbmapNavigation.StylableLabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBProgressBar) @_Concurrency.MainActor(unsafe) public class ProgressBar : UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var barColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBLineView) @_Concurrency.MainActor(unsafe) public class LineView : UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var lineColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBSeparatorView) @_Concurrency.MainActor(unsafe) public class SeparatorView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBStylableButton) @_Concurrency.MainActor(unsafe) open class StylableButton : UIKit.UIButton {
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var textFont: UIKit.UIFont {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var textColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var borderColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var borderWidth: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var cornerRadius: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBManeuverContainerView) @_Concurrency.MainActor(unsafe) open class ManeuverContainerView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBInstructionsBannerContentView) @_Concurrency.MainActor(unsafe) open class InstructionsBannerContentView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBBottomBannerContentView) @_Concurrency.MainActor(unsafe) open class BottomBannerContentView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(NBMarkerView) @_Concurrency.MainActor(unsafe) public class MarkerView : UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var innerColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var shadowColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var pinColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic public var strokeColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var intrinsicContentSize: CoreGraphics.CGSize {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(_ rect: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public enum SpokenInstructionErrorCode : Swift.Int {
+  case unknown
+  case audioPlayerFailedToPlay
+  case emptyNbmapSpeechResponse
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum NBErrorCode : Swift.Int {
+  case unknown
+  case spokenInstructionFailed
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class RouteDurationSymbol : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func screenshotImage() -> UIKit.UIImage?
+  @objc deinit
+}
+public protocol LocationConsumer {
+  func locationConsumerId() -> Swift.String
+  func locationUpdate(to location: CoreLocation.CLLocationCoordinate2D)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class TopBannerViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) weak public var navigationDataEventTracking: NbmapCoreNavigation.NavigationEventTracking?
+  @_Concurrency.MainActor(unsafe) public var lanesView: NbmapNavigation.LanesView
+  @_Concurrency.MainActor(unsafe) public var nextBannerView: NbmapNavigation.NextBannerView
+  @_Concurrency.MainActor(unsafe) public var statusView: NbmapNavigation.StatusView
+  @_Concurrency.MainActor(unsafe) public var junctionView: NbmapNavigation.JunctionView
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) public var isDisplayingPreviewInstructions: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func preview(step stepOverride: NbmapDirections.RouteStep? = nil, maneuverStep: NbmapDirections.RouteStep, distance: CoreLocation.CLLocationDistance, steps: [NbmapDirections.RouteStep], completion: NbmapNavigation.CompletionHandler? = nil)
+  @_Concurrency.MainActor(unsafe) public func stopPreviewing(showingSecondaryChildren: Swift.Bool = true)
+  @objc deinit
+}
+extension NbmapNavigation.TopBannerViewController : NbmapNavigation.NavigationComponent {
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didUpdate locations: [CoreLocation.CLLocation])
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didRerouteAlong route: NbmapDirections.Route, at location: CoreLocation.CLLocation?, proactive: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didFailToRerouteWith error: Swift.Error)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, routeController: NbmapCoreNavigation.RouteController, didRerouteAlong route: NbmapDirections.Route)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didUpdate progress: NbmapCoreNavigation.RouteProgress, with location: CoreLocation.CLLocation, rawLocation: CoreLocation.CLLocation)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didRefresh routeProgress: NbmapCoreNavigation.RouteProgress)
+  @_Concurrency.MainActor(unsafe) public func updateTopBannerInfo(progress: NbmapCoreNavigation.RouteProgress)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, didPassVisualInstructionPoint instruction: NbmapDirections.VisualInstructionBanner, routeProgress: NbmapCoreNavigation.RouteProgress)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, willRerouteFrom location: CoreLocation.CLLocation)
+  @_Concurrency.MainActor(unsafe) public func navigationService(_ service: NbmapCoreNavigation.NavigationService, willEndSimulating progress: NbmapCoreNavigation.RouteProgress, becauseOf reason: NbmapCoreNavigation.SimulationIntent)
+}
+extension NbmapNavigation.TopBannerViewController : NbmapNavigation.InstructionsBannerViewDelegate {
+  @_Concurrency.MainActor(unsafe) public func didTapInstructionsBanner(_ sender: NbmapNavigation.BaseInstructionsBannerView)
+  @_Concurrency.MainActor(unsafe) public func didSwipeInstructionsBanner(_ sender: NbmapNavigation.BaseInstructionsBannerView, swipeDirection direction: UIKit.UISwipeGestureRecognizer.Direction)
+  @_Concurrency.MainActor(unsafe) public func label(_ label: NbmapNavigation.InstructionLabel, willPresent instruction: NbmapDirections.VisualInstruction, as presented: Foundation.NSAttributedString) -> Foundation.NSAttributedString?
+}
+extension NbmapNavigation.TopBannerViewController : NbmapNavigation.CarPlayConnectionObserver {
+  @_Concurrency.MainActor(unsafe) public func didConnectToCarPlay()
+  @_Concurrency.MainActor(unsafe) public func didDisconnectFromCarPlay()
+}
+extension NbmapNavigation.TopBannerViewController : NbmapNavigation.NavigationStatusPresenter {
+  @_Concurrency.MainActor(unsafe) public func show(_ status: NbmapNavigation.StatusView.Status)
+  @_Concurrency.MainActor(unsafe) public func hide(_ status: NbmapNavigation.StatusView.Status)
+}
+extension NbmapNavigation.TopBannerViewController : NbmapNavigation.NavigationMapInteractionObserver {
+  @_Concurrency.MainActor(unsafe) public func navigationViewController(didCenterOn location: CoreLocation.CLLocation)
+}
+public typealias CompletionHandler = () -> Swift.Void
+@objc(NBBimodalCache) public protocol BimodalCache {
+  @objc func clearMemory()
+  @objc func clearDisk(completion: NbmapNavigation.CompletionHandler?)
+}
+@objc(NBBimodalImageCache) public protocol BimodalImageCache : NbmapNavigation.BimodalCache {
+  @objc func store(_ image: UIKit.UIImage, forKey key: Swift.String, toDisk: Swift.Bool, completion completionBlock: NbmapNavigation.CompletionHandler?)
+  @objc func image(forKey: Swift.String?) -> UIKit.UIImage?
+}
+@objc(NBBimodalDataCache) public protocol BimodalDataCache : NbmapNavigation.BimodalCache {
+  @objc func store(_ data: Foundation.Data, forKey key: Swift.String, toDisk: Swift.Bool, completion completionBlock: NbmapNavigation.CompletionHandler?)
+  @objc func data(forKey: Swift.String?) -> Foundation.Data?
+}
+public struct RecentItem : Swift.Equatable, Swift.Codable {
+  public var geocodedPlacemark: NbmapNavigation.NavigationGeocodedPlacemark {
+    get
+  }
+  public init(_ geocodedPlacemark: NbmapNavigation.NavigationGeocodedPlacemark)
+  public static func loadDefaults() -> [NbmapNavigation.RecentItem]
+  public func matches(_ searchText: Swift.String) -> Swift.Bool
+  public static func == (lhs: NbmapNavigation.RecentItem, rhs: NbmapNavigation.RecentItem) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension Swift.Array where Element == NbmapNavigation.RecentItem {
+  @discardableResult
+  public func save() -> Swift.Bool
+  public mutating func add(_ recentItem: NbmapNavigation.RecentItem)
+  public mutating func remove(_ recentItem: NbmapNavigation.RecentItem)
+}
+extension UIKit.UIEdgeInsets {
+  public static func + (left: UIKit.UIEdgeInsets, right: UIKit.UIEdgeInsets) -> UIKit.UIEdgeInsets
+}
+extension UIKit.UIEdgeInsets : Swift.ExpressibleByFloatLiteral {
+  public typealias FloatLiteralType = Swift.Double
+  public init(floatLiteral value: UIKit.UIEdgeInsets.FloatLiteralType)
+}
+public class NavigationCameraStateTransition : NbmapNavigation.CameraStateTransition {
+  weak public var mapView: Nbmap.NGLMapView?
+  required public init(_ mapView: Nbmap.NGLMapView)
+  public func transitionToFollowing(_ cameraOptions: NbmapNavigation.NavMapCameraOption, completion: @escaping (() -> Swift.Void))
+  public func transitionToOverview(_ cameraOptions: NbmapNavigation.NavMapCameraOption, completion: @escaping (() -> Swift.Void))
+  public func cancelPendingTransition()
+  public func update(to cameraOptions: NbmapNavigation.NavMapCameraOption, state: NbmapNavigation.NavigationCameraState)
+  @objc deinit
+}
+extension NbmapNavigation.ManeuversStyleKit.ResizingBehavior : Swift.Equatable {}
+extension NbmapNavigation.ManeuversStyleKit.ResizingBehavior : Swift.Hashable {}
+extension NbmapNavigation.ManeuversStyleKit.ResizingBehavior : Swift.RawRepresentable {}
+extension NbmapNavigation.NavigationViewController : NbmapNavigation.InstructionsBannerViewDelegate {}
+extension NbmapNavigation.NavigationMapView.DurationSymbolType : Swift.Equatable {}
+extension NbmapNavigation.NavigationMapView.DurationSymbolType : Swift.Hashable {}
+extension NbmapNavigation.NavigationMapView.DurationSymbolType : Swift.RawRepresentable {}
+extension NbmapNavigation.SpeedLimitStyleKit.ResizingBehavior : Swift.Equatable {}
+extension NbmapNavigation.SpeedLimitStyleKit.ResizingBehavior : Swift.Hashable {}
+extension NbmapNavigation.SpeedLimitStyleKit.ResizingBehavior : Swift.RawRepresentable {}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayActivity : Swift.Equatable {}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayActivity : Swift.Hashable {}
+@available(iOS 12.0, *)
+extension NbmapNavigation.CarPlayActivity : Swift.RawRepresentable {}
+extension CoreLocation.CLLocation.CodingKeys : Swift.Equatable {}
+extension CoreLocation.CLLocation.CodingKeys : Swift.Hashable {}
+extension CoreLocation.CLLocation.CodingKeys : Swift.RawRepresentable {}
+extension NbmapNavigation.BannerContainerView.`Type` : Swift.Equatable {}
+extension NbmapNavigation.BannerContainerView.`Type` : Swift.Hashable {}
+extension NbmapNavigation.BannerContainerView.State : Swift.Equatable {}
+extension NbmapNavigation.BannerContainerView.State : Swift.Hashable {}
+extension NbmapNavigation.NavigationCameraType : Swift.Equatable {}
+extension NbmapNavigation.NavigationCameraType : Swift.Hashable {}
+extension NbmapNavigation.LanesStyleKit.ResizingBehavior : Swift.Equatable {}
+extension NbmapNavigation.LanesStyleKit.ResizingBehavior : Swift.Hashable {}
+extension NbmapNavigation.LanesStyleKit.ResizingBehavior : Swift.RawRepresentable {}
+extension NbmapNavigation.NavigationCameraState : Swift.Equatable {}
+extension NbmapNavigation.NavigationCameraState : Swift.Hashable {}
+extension NbmapNavigation.DissolvedRouteLineStyle : Swift.Equatable {}
+extension NbmapNavigation.DissolvedRouteLineStyle : Swift.Hashable {}
+extension NbmapNavigation.DissolvedRouteLineStyle : Swift.RawRepresentable {}
+extension NbmapNavigation.MapOrnamentPosition : Swift.Equatable {}
+extension NbmapNavigation.MapOrnamentPosition : Swift.Hashable {}
+extension NbmapNavigation.ViewportDataSourceType : Swift.Equatable {}
+extension NbmapNavigation.ViewportDataSourceType : Swift.Hashable {}
+extension NbmapNavigation.StyleType : Swift.Equatable {}
+extension NbmapNavigation.StyleType : Swift.Hashable {}
+extension NbmapNavigation.StyleType : Swift.RawRepresentable {}
+extension NbmapNavigation.SpokenInstructionErrorCode : Swift.Equatable {}
+extension NbmapNavigation.SpokenInstructionErrorCode : Swift.Hashable {}
+extension NbmapNavigation.SpokenInstructionErrorCode : Swift.RawRepresentable {}
+extension NbmapNavigation.NBErrorCode : Swift.Equatable {}
+extension NbmapNavigation.NBErrorCode : Swift.Hashable {}
+extension NbmapNavigation.NBErrorCode : Swift.RawRepresentable {}

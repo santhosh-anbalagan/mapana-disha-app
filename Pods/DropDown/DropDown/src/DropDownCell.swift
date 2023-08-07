@@ -23,7 +23,7 @@ extension DropDownCell {
 	
 	override open func awakeFromNib() {
 		super.awakeFromNib()
-        self.layoutMargins = UIEdgeInsets.zero
+		
 		backgroundColor = .clear
 	}
 	

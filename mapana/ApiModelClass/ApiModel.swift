@@ -51,6 +51,57 @@ struct BoroughLocationElement: Codable {
 
 typealias BoroughLocation = [BoroughLocationElement]
 
+
+// MARK: - BoroughRouteElement
+struct BoroughRouteElement: Codable {
+    let jobs: [Job]
+//    let depots: [JSONAny]
+    let options: Options
+    let vehicles: [Vehicle]
+    let locations: Locations
+//    let shipments: [JSONAny]
+}
+
+typealias BoroughRoute = BoroughRouteElement
+// MARK: - Job
+struct Job: Codable {
+    let skills: [Int]
+    let locationIndex: Int
+    let description: String
+    let id: Int
+
+    enum CodingKeys: String, CodingKey {
+        case skills
+        case locationIndex = "location_index"
+        case description, id
+    }
+}
+
+// MARK: - Locations
+struct Locations: Codable {
+    let location: [String]
+    let id: Int
+}
+
+// MARK: - Options
+struct Options: Codable {
+}
+
+// MARK: - Vehicle
+struct Vehicle: Codable {
+    let skills, timeWindow: [Int]
+    let startIndex: Int
+    let description: String
+    let id: Int
+
+    enum CodingKeys: String, CodingKey {
+        case skills
+        case timeWindow = "time_window"
+        case startIndex = "start_index"
+        case description, id
+    }
+}
+
 // MARK: - RouteMatrixElement
 struct RouteMatrixElement: Codable {
     var originIndex, destinationIndex: Int?
@@ -67,11 +118,11 @@ typealias RouteMatrix = [RouteMatrixElement]
 
 // MARK: - GoogleRoute
 struct GoogleRoute: Codable {
-    let routes: [Route]?
+    let routes: [Routee]?
 }
 
 // MARK: - Route
-struct Route: Codable {
+struct Routee: Codable {
     let distanceMeters: Int?
     let duration: String?
     let polyline: Polyline?

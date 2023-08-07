@@ -1,0 +1,11 @@
+framework module NbmapDirections {
+  umbrella header "NbmapDirections.h"
+
+  export *
+  module * { export * }
+}
+
+module NbmapDirections.Swift {
+    header "NbmapDirections-Swift.h"
+    requires objc
+}

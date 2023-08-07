@@ -27,6 +27,10 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NBMapAccessKey</key>
+	<string>17a5b5ba0ac44359af0cdf7a6dd6b618</string>
+	<key>NGLMissingLocationServicesUsageDescriptionException</key>
+	<string>Need your location to get Borough Distance</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

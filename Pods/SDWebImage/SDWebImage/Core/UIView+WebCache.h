@@ -34,7 +34,6 @@ typedef void(^SDSetImageBlock)(UIImage * _Nullable image, NSData * _Nullable ima
 /**
  * Get the current image operation key. Operation key is used to identify the different queries for one view instance (like UIButton).
  * See more about this in `SDWebImageContextSetImageOperationKey`.
- * If you cancel current image load, the key will be set to nil.
  * @note You can use method `UIView+WebCacheOperation` to investigate different queries' operation.
  */
 @property (nonatomic, strong, readonly, nullable) NSString *sd_latestOperationKey;
@@ -71,15 +70,14 @@ typedef void(^SDSetImageBlock)(UIImage * _Nullable image, NSData * _Nullable ima
  *   block is called a last time with the full image and the last parameter set to YES.
  *
  *   The last parameter is the original image URL
- *  @return The returned operation for cancelling cache and download operation, typically type is `SDWebImageCombinedOperation`
  */
-- (nullable id<SDWebImageOperation>)sd_internalSetImageWithURL:(nullable NSURL *)url
-                                              placeholderImage:(nullable UIImage *)placeholder
-                                                       options:(SDWebImageOptions)options
-                                                       context:(nullable SDWebImageContext *)context
-                                                 setImageBlock:(nullable SDSetImageBlock)setImageBlock
-                                                      progress:(nullable SDImageLoaderProgressBlock)progressBlock
-                                                     completed:(nullable SDInternalCompletionBlock)completedBlock;
+- (void)sd_internalSetImageWithURL:(nullable NSURL *)url
+                  placeholderImage:(nullable UIImage *)placeholder
+                           options:(SDWebImageOptions)options
+                           context:(nullable SDWebImageContext *)context
+                     setImageBlock:(nullable SDSetImageBlock)setImageBlock
+                          progress:(nullable SDImageLoaderProgressBlock)progressBlock
+                         completed:(nullable SDInternalCompletionBlock)completedBlock;
 
 /**
  * Cancel the current image load

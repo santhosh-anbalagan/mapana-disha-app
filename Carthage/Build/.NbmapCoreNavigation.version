@@ -1,0 +1,28 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "0.3.2",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)",
+      "hash" : "f3e6eee37c2082e679b648fa99fc504dea31aca20c65881e89ed078e7e57769e",
+      "name" : "NbmapCoreNavigation",
+      "container" : "NbmapCoreNavigation.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)",
+      "hash" : "26a7a3445d8d8bc978bba4a4e89cecf4ee96a10ab80372b829f5f749b0acea75",
+      "name" : "NbmapCoreNavigation",
+      "container" : "NbmapCoreNavigation.xcframework",
+      "identifier" : "ios-arm64"
+    }
+  ]
+}

@@ -16,9 +16,16 @@ struct ApiRequest {
         NetworkManager().postRequest(url: url, parameters: parameters, completion: completion)
     }
     
-    static func fetchAllBorough<T: Codable>(of type: T.Type = T.self, completion: @escaping (Result<T, RequestError>, Data) -> Void) {
+    static func fetchAllBorough<T: Codable>(of type: T.Type = T.self, userId:String,completion: @escaping (Result<T, RequestError>, Data) -> Void) {
         let url = ApiConstants.apiBaseURL + ApiConstants.getAllBorough
         NetworkManager().getServiceData(url: url, completion: completion)
+    }
+    
+    static func fetchBoroughRouteByID<T: Codable>(of type: T.Type = T.self,boroughId: String,userId: String, completion: @escaping (Result<T, RequestError>, Data) -> Void) {
+        let parameters = ["boroughId": boroughId,"userId": userId]
+        let url = ApiConstants.apiBaseURL + ApiConstants.getBoroughRouteByID
+        print("REQUEST:: \(url) \n\n \(parameters)")
+        NetworkManager().postRequest(url: url, parameters: parameters,completion: completion)
     }
     
     static func getBroughtByID<T: Codable>(of type: T.Type = T.self, boroughId: String, completion: @escaping (Result<T, RequestError>, Data) -> Void) {
@@ -62,4 +69,51 @@ struct ApiRequest {
         NetworkManager().postRequest(url: url, parameters: parameters, completion: completion)
     }
     
+    static func updateNavigation<T: Codable>(of type: T.Type = T.self, userID: String, signId: String, isStart: Bool,timestamp: String,timerSec: String,lat: String,long: String,derivedDistance: String,derivedTime: String, completion: @escaping (Result<T, RequestError>, Data) -> Void)  {
+        let url = ApiConstants.apiBaseURL + ApiConstants.updateNavigation
+        let parameters = [
+          "userId": userID,
+          "signId": signId,
+          "status": isStart ? "START" : "END",
+          "timestamp": timestamp,
+          "timerSec": timerSec,
+          "lat": lat,
+          "lng": long,
+          "derivedDistance": 223,
+          "derivedTime": 4556
+        ] as [String : Any]
+        
+        print("REQUEST:: \(url) \n\(parameters)")
+        NetworkManager().postRequest(url: url, parameters: parameters, completion: completion)
+    }
+    
+    static func reportAPI<T: Codable>(of type: T.Type = T.self, signId: String, userID: String, status: String, lat: String, long: String, timestamp: String, timerSec: String, completion: @escaping (Result<T, RequestError>, Data) -> Void)  {
+        let url = ApiConstants.apiBaseURL + ApiConstants.crossPointNavigation
+        let parameters = [
+            "signId": signId,
+            "userId": userID,
+            "status": status,
+            "lat": lat,
+            "lng": long,
+            "timestamp": timestamp,
+            "timerSec": timerSec
+        ] as [String : Any]
+        
+        print("REQUEST:: \(url) \n\(parameters)")
+        NetworkManager().postRequest(url: url, parameters: parameters, completion: completion)
+    }
+    
+    static func crossPointAPI<T: Codable>(of type: T.Type = T.self, signId: String, userID: String, status: String, timestamp: String, timerSec: String, completion: @escaping (Result<T, RequestError>, Data) -> Void)  {
+        let url = ApiConstants.apiBaseURL + ApiConstants.crossPointNavigation
+        let parameters = [
+            "signId": signId,
+            "userId": userID,
+            "status": status,
+            "timestamp": timestamp,
+            "timerSec": timerSec
+        ] as [String : Any]
+        
+        print("REQUEST:: \(url) \n\(parameters)")
+        NetworkManager().postRequest(url: url, parameters: parameters, completion: completion)
+    }
 }

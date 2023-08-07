@@ -71,7 +71,10 @@ class MainViewController: UIViewController {
         view.addGestureRecognizer(panGestureRecognizer)
 
         // Default Main View Controller
-        showViewController(viewController: UINavigationController.self, storyboardId: "HomeNavID")
+        //showViewController(viewController: UINavigationController.self, storyboardId: "HomeNavID")
+        
+        //New Map
+        showViewController(viewController: UINavigationController.self, storyboardId: "NewHomeNavID")
     }
 
     func setNavBarAppearance(tintColor: UIColor, barColor: UIColor) {
@@ -148,7 +151,9 @@ extension MainViewController: SideMenuViewControllerDelegate {
         switch row {
         case 0:
             // Home
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "HomeNavID")
+//            self.showViewController(viewController: UINavigationController.self, storyboardId: "HomeNavID")
+                
+            self.showViewController(viewController: UINavigationController.self, storyboardId: "NewHomeNavID")
         default:
             break
         }
@@ -164,11 +169,13 @@ extension MainViewController: SideMenuViewControllerDelegate {
                 subview.removeFromSuperview()
             }
         }
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId) as! T
         vc.view.tag = 99
         view.insertSubview(vc.view, at: self.revealSideMenuOnTop ? 0 : 1)
         addChild(vc)
+        
         DispatchQueue.main.async {
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
@@ -178,14 +185,17 @@ extension MainViewController: SideMenuViewControllerDelegate {
                 vc.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
             ])
         }
+        
         if !self.revealSideMenuOnTop {
             if isExpanded {
                 vc.view.frame.origin.x = self.sideMenuRevealWidth
             }
+            
             if self.sideMenuShadowView != nil {
                 vc.view.addSubview(self.sideMenuShadowView)
             }
         }
+        
         vc.didMove(toParent: self)
     }
 }
